@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Project, db
-from app.forms import ProjectForm
+from app.forms.project_form import ProjectForm
 from .utils import validation_errors_to_error_messages
 
 project_routes = Blueprint('reviews', __name__)
