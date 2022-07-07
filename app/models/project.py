@@ -9,7 +9,7 @@ class Project(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
   title = db.Column(db.String(100), nullable=False)
   color = db.Column(db.String(100), nullable=False, default='')
-  favorite = db.Column(db.Boolean, nullable=False, default=False)
+  favorite = db.Column(db.Boolean, default=False)
   created_at = db.Column(db.DateTime, default=datetime.now())
 
   # Relationships
