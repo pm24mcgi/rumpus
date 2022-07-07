@@ -13,7 +13,7 @@ def all_projects():
   projects = Project.query.all()
   return {project.id: project.to_dict() for project in projects}
 
-@project_routes.route('/new', methods=['POST'])
+@project_routes.route('/add', methods=['POST'])
 @login_required
 def new_project():
   form = ProjectForm()

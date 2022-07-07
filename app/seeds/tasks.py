@@ -4,17 +4,17 @@ from datetime import date
 
 # Adds a demo user, you can add other users here if you want
 def seed_tasks():
-    task1 = Task(id=1, user_id=1, project_id=1, task='Sign up for the blood drive',
+    task1 = Task(user_id=1, project_id=1, task='Sign up for the blood drive',
                  completed=False, prioirty=1, due_date=date(2022, 7, 15))
-    task2 = Task(id=2, user_id=1, project_id=1, task='Rescue the cat from the tree',
+    task2 = Task(user_id=1, project_id=1, task='Rescue the cat from the tree',
                  completed=False, prioirty=2, due_date=date(2022, 7, 21))
-    task3 = Task(id=3, user_id=1, project_id=1, task='Mow the neighbors grass',
+    task3 = Task(user_id=1, project_id=1, task='Mow the neighbors grass',
                  completed=False, prioirty=3, due_date=date(2022, 7, 7))
-    task4 = Task(id=4, user_id=1, project_id=1, task='Make cookies with grandma',
+    task4 = Task(user_id=1, project_id=1, task='Make cookies with grandma',
                  completed=False, prioirty=4, due_date=date(2022, 7, 14))
-    task5 = Task(id=5, user_id=1, project_id=1, task='Volunteer at the animal shelter',
+    task5 = Task(user_id=1, project_id=1, task='Volunteer at the animal shelter',
                  completed=False, prioirty=1, due_date=date(2022, 7, 10))
-    task6 = Task(id=6, user_id=1, project_id=1, task='Save the family from the burning car',
+    task6 = Task(user_id=1, project_id=1, task='Save the family from the burning car',
                  completed=False, prioirty=2, due_date=date(2022, 7, 22))
 
     db.session.add(task1)

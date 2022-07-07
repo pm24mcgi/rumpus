@@ -4,10 +4,16 @@ from app.models import db, Project
 
 
 def seed_projects():
-    BeBetter = Project(id=1, user_id=1, title='End Up in Heaven',
+    BeBetter = Project(user_id=1, title='End Up in Heaven',
+                       color='orange', favorite=False)
+    project2 = Project(user_id=2, title='Project 2',
+                       color='orange', favorite=False)
+    project3 = Project(user_id=1, title='Project 3',
                        color='orange', favorite=False)
 
     db.session.add(BeBetter)
+    db.session.add(project2)
+    db.session.add(project3)
 
     db.session.commit()
 
