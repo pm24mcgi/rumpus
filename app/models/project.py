@@ -8,13 +8,13 @@ class Project(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
   title = db.Column(db.String(100), nullable=False)
-  color = db.Column(db.String(100), nullable=False, default=False)
+  color = db.Column(db.String(100), nullable=False, default='')
   favorite = db.Column(db.Boolean, nullable=False, default=False)
   created_at = db.Column(db.DateTime, default=datetime.now())
 
   # Relationships
   users = db.relationship("User", back_populates="projects")
-  tasks = db.relationship("Task", back_populates="projects")
+  tasks = db.relationship("Task", back_populates="projects", cascade="all, delete")
 
   def to_dict(self):
     return {
