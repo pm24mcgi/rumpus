@@ -26,7 +26,7 @@ const GetProjects = () => {
             : "nav-entry"}>
               <div className='ProjectNavLinkText'>
                 {project.title}
-                <EditProjects id={project.id}/>
+                <EditProjects id={project.id} project={project}/>
                 <DeleteProjects id={project.id} />
               </div>
           </NavLink>

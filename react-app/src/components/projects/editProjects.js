@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Rating } from 'react-simple-star-rating'
-import { editproject } from '../../store/projects'
+import { editProject } from '../../store/projects'
 
-const EditProjects = ({id}) => {
+const EditProjects = ({id, project}) => {
+  console.log(project)
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
-  const [title, setTitle] = useState('');
-  const [color, setColor] = useState('none');
-  const [favorite, setFavorite] = useState(false);
-  const [favoriteTGL, setFavoriteTGL] = useState(0);
+  let favoriteStarter = 0
+  if (project.favorite === true) {
+    favoriteStarter = 100
+  }
+
+  const [title, setTitle] = useState(project.title);
+  const [color, setColor] = useState(project.color);
+  const [favorite, setFavorite] = useState(project.favorite);
+  const [favoriteTGL, setFavoriteTGL] = useState(favoriteStarter);
   const [validationErrors, setValidationErrors] = useState([]);
 	const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -34,6 +40,7 @@ const EditProjects = ({id}) => {
 	]);
 
   const onSubmit = async (e) => {
+    console.log('hello?')
 		e.preventDefault();
 
 		setHasSubmitted(true);
@@ -44,7 +51,9 @@ const EditProjects = ({id}) => {
 		};
 
 		if (validationErrors.length <= 0) {
-			await dispatch(editproject(data, id));
+      console.log('1')
+			await dispatch(editProject(data, id));
+      console.log('2')
 			setValidationErrors([]);
 			setHasSubmitted(false);
 		}
@@ -53,7 +62,7 @@ const EditProjects = ({id}) => {
   return (
     <div className='ProjectContainer'>
       <div>
-        <form onSubmit={onSubmit}>
+        <form>
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (
@@ -87,13 +96,14 @@ const EditProjects = ({id}) => {
               <option value="pink">pink</option>
               <option value="purple">Purple</option>
               <option value="yellow">Yellow</option>
+              <option value='orange'>Orange</option>
             </select>
             <label>Favorite</label>
             <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} />
           </div>
-          <button className="Submit Btn" type="submit">
-          Edit Project
-        </button>
+          <button className="Submit Btn" onClick={onSubmit}>
+          Edit Project???????
+          </button>
         </form>
       </div>
     </div>
