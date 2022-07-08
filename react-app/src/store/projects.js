@@ -26,7 +26,6 @@ const remove = project => ({
 
 // "THUNK" ACTIONS CREATORS
 export const getProjects = () => async dispatch => {
-  console.log("get dispatched")
   const response = await fetch(`/api/projects`);
 
   if (response.ok) {
@@ -52,7 +51,7 @@ export const postProject = (payload) => async dispatch => {
   };
 }
 
-export const editproject = (payload, id) => async dispatch => {
+export const editProject = (payload, id) => async dispatch => {
   console.log("edit dispatched")
   const response = await fetch(`/api/projects/${id}`, {
     method: "PUT",
@@ -70,7 +69,6 @@ export const editproject = (payload, id) => async dispatch => {
 };
 
 export const deleteProject = (id) => async (dispatch) => {
-  console.log(id)
   const response = await fetch(`/api/projects/${id}`, {
     method: 'DELETE',
     headers: {

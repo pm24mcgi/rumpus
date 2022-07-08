@@ -97,7 +97,7 @@ const PostProjects = () => {
           </div>
           <button className="Submit Btn" type="submit">
           + Add Project
-        </button>
+          </button>
         </form>
       </div>
     </div>
