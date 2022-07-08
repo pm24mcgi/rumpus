@@ -101,7 +101,7 @@ const EditProjects = ({id, project}) => {
             <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} />
           </div>
           <button className="Submit Btn" onClick={onSubmit}>
-          Edit Project???????
+          Edit Project
           </button>
         </form>
       </div>

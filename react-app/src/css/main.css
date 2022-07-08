@@ -1,0 +1,9 @@
+.ProjectContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.Collapsible {
+  background-color: rgb(135, 123, 123);
+}
