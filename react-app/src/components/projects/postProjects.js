@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Rating } from 'react-simple-star-rating'
 import { postProject } from '../../store/projects'
 
 const PostProjects = () => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
   const [title, setTitle] = useState('');
   const [color, setColor] = useState('none');
