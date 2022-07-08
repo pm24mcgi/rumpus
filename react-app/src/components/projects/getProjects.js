@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { getProjects } from '../../store/projects'
+import { getProjects } from '../../store/projects';
+import EditProjects from './editProjects';
+import DeleteProjects from './deleteProjects';
 
 const GetProjects = () => {
   const dispatch = useDispatch();
@@ -24,6 +26,8 @@ const GetProjects = () => {
             : "nav-entry"}>
               <div className='ProjectNavLinkText'>
                 {project.title}
+                <EditProjects id={project.id}/>
+                <DeleteProjects id={project.id} />
               </div>
           </NavLink>
         )

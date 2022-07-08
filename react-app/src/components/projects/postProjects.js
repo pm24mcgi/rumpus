@@ -46,6 +46,9 @@ const PostProjects = () => {
 		if (validationErrors.length <= 0) {
 			await dispatch(postProject(data));
 			setValidationErrors([]);
+      setTitle('')
+      setColor('none')
+      setFavorite(false)
 			setHasSubmitted(false);
 		}
 	};
