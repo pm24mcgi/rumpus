@@ -1,8 +1,13 @@
+import React from 'react';
 import { Switch, Route } from "react-router-dom";
+import Collapsible from 'react-collapsible';
+import GetProjects from '../projects/getProjects';
+import PostProjects from '../projects/postProjects';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import '../../css/main.css'
 
-import GetProjects from '../projects/getProjects'
-import PostProjects from '../projects/postProjects'
 
+// const hamburgerMenuIcon = <GiHamburgerMenu />
 
 function MainRoutes() {
 
@@ -12,12 +17,18 @@ function MainRoutes() {
       <h1>Main Page With Blended Routes</h1>
       <Switch>
         <Route path='/' exact ={true}>
-          <GetProjects />
-          <PostProjects />
+          <div className='ProjectContainer'>
+            <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+              <GetProjects />
+              <PostProjects />
+            </Collapsible>
+          </div>
         </Route>
         <Route path='/projects/:project_id' >
-          <GetProjects />
-          <PostProjects />
+        <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+            <GetProjects />
+            <PostProjects />
+          </Collapsible>
         </Route>
       </Switch>
     </>
