@@ -1,7 +1,7 @@
 const LOAD = '/projects/LOAD';
 const CREATE = '/projects/CREATE';
-const REMOVE = '/projects/REMOVE';
 const EDIT = '/projects/EDIT';
+const REMOVE = '/projects/REMOVE';
 
 // ACTION CREATORS
 const load = list => ({
@@ -26,6 +26,7 @@ const remove = project => ({
 
 // "THUNK" ACTIONS CREATORS
 export const getProjects = () => async dispatch => {
+  console.log("get dispatched")
   const response = await fetch(`/api/projects`);
 
   if (response.ok) {
@@ -51,8 +52,9 @@ export const postProject = (payload) => async dispatch => {
   };
 }
 
-export const editproject = (payload, review_id) => async dispatch => {
-  const response = await fetch(`/api/reviews/${review_id}`, {
+export const editproject = (payload, id) => async dispatch => {
+  console.log("edit dispatched")
+  const response = await fetch(`/api/projects/${id}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json'
@@ -60,25 +62,25 @@ export const editproject = (payload, review_id) => async dispatch => {
     body: JSON.stringify(payload)
   });
 
-  const review = await response.json()
-  if (review) {
-    dispatch(edit(review));
+  const project = await response.json()
+  if (project) {
+    dispatch(edit(project));
   };
-  return review;
+  return project;
 };
 
-export const deleteProject = (review_id) => async dispatch => {
-  const response = await fetch(`/api/reviews/${review_id}`, {
+export const deleteProject = (id) => async (dispatch) => {
+  console.log(id)
+  const response = await fetch(`/api/projects/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(review_id)
+    body: JSON.stringify(id)
   });
 
   if (response.ok) {
-    const review = await response.json();
-    dispatch(remove(review));
+    dispatch(remove(id));
   };
 };
 
@@ -94,7 +96,7 @@ const projectReducer = (state = {}, action) => {
       return { ...state, [action.project.id]: action.project };
     case REMOVE:
       const deleteState = { ...state };
-      delete deleteState[action.project.id];
+      delete deleteState[action.project];
       return deleteState;
     default:
       return state;

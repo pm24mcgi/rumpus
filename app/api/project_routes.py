@@ -53,6 +53,7 @@ def update_project(id):
 @project_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_project(id):
+    print(id)
     project = Project.query.get(id)
     db.session.delete(project)
     db.session.commit()
