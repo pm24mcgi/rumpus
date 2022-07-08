@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Rating } from 'react-simple-star-rating'
 import { editProject } from '../../store/projects'
 
 const EditProjects = ({id, project}) => {
   console.log(project)
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
   let favoriteStarter = 0
   if (project.favorite === true) {
