@@ -21,6 +21,7 @@ def new_task(project_id):
     form = TaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
+    print(data)
     if form.validate_on_submit():
         new_task = Task(
             user_id=current_user.to_dict()['id'],

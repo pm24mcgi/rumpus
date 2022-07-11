@@ -18,7 +18,7 @@ const GetTasks = () => {
       {tasks.map((task) => {
         if (project_id == task.project_id) {
           return (
-            <div>
+            <div key={task.id}>
               <div>{task.task}</div>
               <div>{task.due_date}</div>
               <div>{task.completed}</div>

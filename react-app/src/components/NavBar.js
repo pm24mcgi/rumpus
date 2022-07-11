@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import PostTask from '../components/tasks/postTasks'
 import '../css/main.css'
 
 const NavBar = () => {
@@ -19,6 +20,7 @@ const NavBar = () => {
       <NavLink to='/users' exact={true} activeClassName='active' className='NavBarElement'>
         Users
       </NavLink>
+      <PostTask />
       <LogoutButton />
     </nav>
   );

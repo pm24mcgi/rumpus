@@ -35,8 +35,9 @@ export const getTasks = () => async dispatch => {
   };
 };
 
-export const postTask = (payload, project_id) => async dispatch => {
-  const response = await fetch(`/api/tasks/${project_id}/new`, {
+export const postTask = (payload) => async dispatch => {
+  console.log(payload)
+  const response = await fetch(`/api/tasks/${payload.project_id}/new`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

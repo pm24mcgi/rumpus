@@ -8,5 +8,5 @@ class TaskForm(FlaskForm):
   project_id = IntegerField("Project", validators=[DataRequired(message="Please associate task with a valid project")])
   task = StringField("Task", validators=[DataRequired(message="Please provide a description")])
   completed = BooleanField("Completed")
-  prioirty = BooleanField("Priority")
+  priority = IntegerField("priority")
   due_date = DateField('Due Date')

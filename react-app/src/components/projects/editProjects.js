@@ -4,7 +4,6 @@ import { Rating } from 'react-simple-star-rating'
 import { editProject } from '../../store/projects'
 
 const EditProjects = ({id, project}) => {
-  console.log(project)
   const dispatch = useDispatch();
 
   let favoriteStarter = 0
@@ -39,7 +38,6 @@ const EditProjects = ({id, project}) => {
 	]);
 
   const onSubmit = async (e) => {
-    console.log('hello?')
 		e.preventDefault();
 
 		setHasSubmitted(true);
@@ -50,9 +48,7 @@ const EditProjects = ({id, project}) => {
 		};
 
 		if (validationErrors.length <= 0) {
-      console.log('1')
 			await dispatch(editProject(data, id));
-      console.log('2')
 			setValidationErrors([]);
 			setHasSubmitted(false);
 		}
