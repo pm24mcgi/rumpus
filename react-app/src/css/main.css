@@ -1,3 +1,9 @@
+.NavBarContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .ProjectContainer {
   display: flex;
   flex-direction: column;
@@ -6,4 +12,8 @@
 
 .Collapsible {
   background-color: rgb(135, 123, 123);
+}
+
+.ProjectDetailMainContainer {
+  display: flex;
 }
