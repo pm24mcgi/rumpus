@@ -4,7 +4,7 @@ from app.models import Task, db
 from app.forms import TaskForm
 from .utils import validation_errors_to_error_messages
 
-task_routes = Blueprint('reviews', __name__)
+task_routes = Blueprint('tasks', __name__)
 
 
 # Route provides all avaialble tasks
