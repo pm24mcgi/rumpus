@@ -20,7 +20,7 @@ const NavBar = () => {
       <NavLink to='/users' exact={true} activeClassName='active' className='NavBarElement'>
         Users
       </NavLink>
-      <PostTask />
+      {/* <PostTask /> */}
       <LogoutButton />
     </nav>
   );
