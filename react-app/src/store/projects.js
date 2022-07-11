@@ -52,7 +52,6 @@ export const postProject = (payload) => async dispatch => {
 }
 
 export const editProject = (payload, id) => async dispatch => {
-  console.log("edit dispatched")
   const response = await fetch(`/api/projects/${id}`, {
     method: "PUT",
     headers: {

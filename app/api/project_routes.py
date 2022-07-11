@@ -4,7 +4,7 @@ from app.models import Project, db
 from app.forms.project_form import ProjectForm
 from .utils import validation_errors_to_error_messages
 
-project_routes = Blueprint('reviews', __name__)
+project_routes = Blueprint('projects', __name__)
 
 
 @project_routes.route('')

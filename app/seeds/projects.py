@@ -4,7 +4,7 @@ from app.models import db, Project
 
 
 def seed_projects():
-    BeBetter = Project(user_id=1, title='End Up in Heaven',
+    BeBetter = Project(user_id=1, title='Superman',
                        color='orange', favorite=False)
     project2 = Project(user_id=2, title='Project 2',
                        color='orange', favorite=False)

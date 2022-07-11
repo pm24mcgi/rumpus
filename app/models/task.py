@@ -11,7 +11,7 @@ class Task(db.Model):
       db.Integer, db.ForeignKey("projects.id"), nullable=False)
   task = db.Column(db.String(2000), nullable=False)
   completed = db.Column(db.Boolean, nullable=False, default=False)
-  prioirty = db.Column(db.Integer, nullable=False)
+  priority = db.Column(db.Integer, nullable=False)
   due_date = db.Column(db.Date)
   created_at = db.Column(db.DateTime, default=datetime.now())
 
@@ -26,7 +26,7 @@ class Task(db.Model):
           'project_id': self.project_id,
           'task': self.task,
           'completed': self.completed,
-          'prioirty': self.prioirty,
+          'priority': self.priority,
           'due_date': self.due_date,
           'created_at': self.created_at
       }

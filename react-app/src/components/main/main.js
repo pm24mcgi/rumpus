@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Collapsible from 'react-collapsible';
 import GetProjects from '../projects/getProjects';
 import PostProjects from '../projects/postProjects';
+import GetTasks from '../tasks/getTasks';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import '../../css/main.css'
 
@@ -25,10 +26,13 @@ function MainRoutes() {
           </div>
         </Route>
         <Route path='/projects/:project_id' >
-        <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
-            <GetProjects />
-            <PostProjects />
-          </Collapsible>
+          <div className='ProjectDetailMainContainer'>
+            <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+              <GetProjects />
+              <PostProjects />
+            </Collapsible>
+            <GetTasks />
+          </div>
         </Route>
       </Switch>
     </>
