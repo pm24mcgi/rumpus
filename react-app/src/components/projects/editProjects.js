@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Rating } from 'react-simple-star-rating'
 import { editProject } from '../../store/projects'
+import ColorSelect from '../customSelect/customSelect';
 
 const EditProjects = ({id, project}) => {
   const dispatch = useDispatch();
@@ -36,6 +37,11 @@ const EditProjects = ({id, project}) => {
 	}, [
 		title
 	]);
+
+  const handleChange = (selectedColor) => {
+    console.log(selectedColor)
+    setColor(selectedColor)
+  }
 
   const onSubmit = async (e) => {
 		e.preventDefault();
@@ -77,22 +83,7 @@ const EditProjects = ({id, project}) => {
             value={title}
             />
             <label>Flag Color</label>
-            <select
-            className="inputForm"
-            required
-            name="color"
-            onChange={(e) => setColor(e.target.value)}
-            value={color}
-            >
-              <option value="none">None</option>
-              <option value="blue">Blue</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-              <option value="pink">pink</option>
-              <option value="purple">Purple</option>
-              <option value="yellow">Yellow</option>
-              <option value='orange'>Orange</option>
-            </select>
+            <ColorSelect onChange={handleChange} setColor={setColor} defaultValue={color} />
             <label>Favorite</label>
             <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} />
           </div>

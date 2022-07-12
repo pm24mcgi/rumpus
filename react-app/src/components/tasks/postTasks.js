@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { postTask } from '../../store/tasks'
+import Calendar from 'react-calendar';
 
 const PostTask = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const PostTask = () => {
   const [project_id, setProject] = useState();
   const [priority, setPriority] = useState(4);
   const [dueDate, setDueDate] = useState();
+  const [value, onChange] = useState(new Date());
   // const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
@@ -82,6 +84,7 @@ const PostTask = () => {
             </select>
             <div>Due Date Cal Comp</div>
         </div>
+        <Calendar onChange={onChange} value={value} />
         <button type="submit">Submit New Task</button>
       </form>
     </div>
