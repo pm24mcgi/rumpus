@@ -21,7 +21,7 @@ const GetTasks = () => {
     <div className='TaskContainer'>
       <div className='TaskContainerInternal'>
         <div className='TaskContainerProjectDescription'>
-          {project[0].title}
+          {project[0]?.title}
         </div>
         {tasks.map((task) => {
           if (project_id == task.project_id) {
