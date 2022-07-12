@@ -60,3 +60,7 @@
   justify-content: space-between;
   width: 250px;
 }
+
+.ProjectEditDots {
+  cursor: pointer;
+}

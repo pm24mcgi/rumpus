@@ -34,9 +34,11 @@ const GetProjects = () => {
                 </div>
             </NavLink>}
             {(sessionUser.id === project.user_id) &&
-            <Collapsible trigger={<BsThreeDots />} transitionTime={0.1}>
-              <HiOutlinePencilAlt />
-            </Collapsible>}
+            <div className='ProjectEditDots'>
+              <Collapsible trigger={<BsThreeDots />} transitionTime={0.1}>
+                <HiOutlinePencilAlt />
+              </Collapsible>
+            </div>}
           </div>
         )
       })}
