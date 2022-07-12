@@ -1,7 +1,20 @@
 .NavBarContainer {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color: #d1453b;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.CollapsibleElements {
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+  background-color: rgb(246, 246, 246);
+  height: 95vh;
+  width: 350px;
+
 }
 
 .ProjectContainer {
@@ -10,16 +23,40 @@
   width: fit-content;
 }
 
-.Collapsible {
-  background-color: rgb(135, 123, 123);
-}
-
 .ProjectDetailMainContainer {
   display: flex;
 }
 
+.TaskContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 400px;
+  height: 96vh;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-.ColorSelectContainter {
-  /* width: 375px;
-  height: 25px; */
+}
+
+.TaskContainerInternal {
+  width: 55%;
+  padding-top: 35px;
+}
+
+.TaskContainerProjectDescription {
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: rgb(46, 46, 46) solid 1px;
+}
+
+.IndvTaskContainer {
+  padding: 15px;
+}
+
+.ProjectNavLinksWithEdit {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
 }

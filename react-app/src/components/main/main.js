@@ -14,28 +14,31 @@ function MainRoutes() {
 
 
   return (
-    <>
-      <h1>Main Page With Blended Routes</h1>
+    <div className='MainContainer'>
       <Switch>
         <Route path='/' exact ={true}>
           <div className='ProjectContainer'>
-            <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
-              <GetProjects />
-              <PostProjects />
-            </Collapsible>
+            <div className='CollapsibleElements'>
+              <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+                <GetProjects />
+                <PostProjects />
+              </Collapsible>
+            </div>
           </div>
         </Route>
         <Route path='/projects/:project_id' >
           <div className='ProjectDetailMainContainer'>
-            <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
-              <GetProjects />
-              <PostProjects />
-            </Collapsible>
+            <div className='CollapsibleElements'>
+              <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+                <GetProjects />
+                <PostProjects />
+              </Collapsible>
+            </div>
             <GetTasks />
           </div>
         </Route>
       </Switch>
-    </>
+    </div>
   )
 }
 
