@@ -29,8 +29,8 @@ const GetTasks = () => {
             return (
               <div key={task.id} className='IndvTaskContainer'>
                 <div>{task.task}</div>
-                <div>{task.due_date}</div>
-                <div>{task.completed}</div>
+                {/* <div>{task.due_date}</div>
+                <div>{task.completed}</div> */}
               </div>
             )
           }

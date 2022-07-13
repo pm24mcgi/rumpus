@@ -75,6 +75,7 @@ const PostProjects = () => {
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             />
+            <br></br>
             <label>Flag Color</label>
             <select
             className="inputForm"
@@ -91,6 +92,7 @@ const PostProjects = () => {
               <option value="purple">Purple</option>
               <option value="yellow">Yellow</option>
             </select>
+            <br></br>
             <label>Favorite</label>
             <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} />
           </div>

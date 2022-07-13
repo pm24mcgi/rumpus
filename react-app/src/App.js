@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import MainRoutes from './components/main/main'
 import Splash from './components/Splash'
+import PostTask from './components/tasks/postTasks'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path={['/', '/projects/:project_id']} exact={true} >
           <MainRoutes />
+        </ProtectedRoute>
+        <ProtectedRoute path='/tasks' exact={true} >
+          <PostTask />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

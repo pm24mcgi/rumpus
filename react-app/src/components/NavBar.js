@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
-import PostTask from '../components/tasks/postTasks'
+import { BsPlusLg } from 'react-icons/bs'
 import '../css/main.css'
 
 const NavBar = () => {
@@ -17,7 +17,9 @@ const NavBar = () => {
         <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
           Home
         </NavLink>
-        <PostTask />
+        <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement'>
+          <BsPlusLg />
+        </NavLink>
         <LogoutButton />
       </nav>
     </>)

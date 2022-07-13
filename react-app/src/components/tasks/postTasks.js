@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { postTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
 
 const PostTask = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const userId = useSelector(state => state.session.user.id)
   const allProjects = Object.values(useSelector(state => state.project))
 
@@ -20,6 +21,7 @@ const PostTask = () => {
 
   const [task, setTask] = useState('');
   const [project_id, setProject] = useState();
+  console.log(project_id, "look here")
   const [priority, setPriority] = useState(4);
   const [dueDate, setDueDate] = useState();
   const [value, onChange] = useState(new Date());
@@ -40,6 +42,7 @@ const PostTask = () => {
     };
 
     await dispatch(postTask(payload))
+    .then(history.push('/projects/${project_id}'))
   };
 
   return (
@@ -66,6 +69,7 @@ const PostTask = () => {
             onChange={(e) => setProject(e.target.value)}
             value={project_id}
             >
+            <option disabled selected>Select a project...</option>
             {projects.map((option) => (
               <option key={option.id} value={option.id}>{option.title}</option>
             ))}
@@ -77,6 +81,7 @@ const PostTask = () => {
             onChange={(e) => setPriority(e.target.value)}
             value={priority}
             >
+              <option disabled selected>Priority...</option>
               <option value="1">Priority 1</option>
               <option value="2">Priority 2</option>
               <option value="3">Priority 3</option>
