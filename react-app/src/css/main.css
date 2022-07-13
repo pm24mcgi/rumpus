@@ -99,3 +99,17 @@
 .PostTaskCalendarContainer {
   width: 25rem;
 }
+
+.AllTaskContainerDateContainer {
+  display: flex;
+  align-items: flex-end;
+  font-weight:999;
+  font-size: 22px;
+  border-bottom: 1px solid grey;
+}
+
+.TodaysDateDisplayAllTasks {
+  margin-left: 8px;
+  font-size: 14px;
+  color: rgb(121, 121, 121);
+}

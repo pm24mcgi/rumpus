@@ -3,6 +3,7 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import Collapsible from 'react-collapsible';
 import GetProjects from '../projects/getProjects';
 import GetTasks from '../tasks/getTasks';
+import AllTasks from '../tasks/AllTasks';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsPlusLg } from 'react-icons/bs'
@@ -48,6 +49,7 @@ function MainRoutes() {
             <div className='CollapsibleElements'>
               <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                 <GetProjects />
+                <AllTasks />
               </Collapsible>
             </div>
           </div>

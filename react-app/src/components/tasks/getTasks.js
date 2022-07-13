@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks'
-import PostTask from './postTasks';
 import { BsPlusLg } from 'react-icons/bs'
 
 
