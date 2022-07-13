@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { postTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
+import '../../css/main.css'
 
 const PostTask = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const PostTask = () => {
   };
 
   return (
-    <div>
+    <div className='TaskAddContainer'>
       <div>
         Add A Task
       </div>
@@ -89,7 +90,9 @@ const PostTask = () => {
             </select>
             <div>Due Date Cal Comp</div>
         </div>
-        <Calendar onChange={onChange} value={value} />
+        <div className='PostTaskCalendarContainer'>
+          <Calendar onChange={onChange} value={value} />
+        </div>
         <button type="submit">Submit New Task</button>
       </form>
     </div>

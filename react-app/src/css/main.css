@@ -64,3 +64,19 @@
 .ProjectEditDots {
   cursor: pointer;
 }
+
+.TaskAddContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  top:150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.PostTaskCalendarContainer {
+  width: 25rem;
+}
