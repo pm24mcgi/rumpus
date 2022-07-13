@@ -39,7 +39,6 @@ const EditProjects = ({id, project}) => {
 	]);
 
   const handleChange = (selectedColor) => {
-    console.log(selectedColor)
     setColor(selectedColor)
   }
 

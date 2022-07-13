@@ -9,7 +9,13 @@
 
 .TriggerContainer {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+}
+
+.TriggerContainerLeft {
+  display: flex;
 }
 
 .TriggerText {
@@ -23,6 +29,10 @@
   background-color: rgb(246, 246, 246);
   height: 95vh;
   width: 350px;
+
+}
+
+.PostProjectNavLink {
 
 }
 

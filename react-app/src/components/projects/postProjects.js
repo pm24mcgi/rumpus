@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import { postProject } from '../../store/projects'
 
 const PostProjects = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [title, setTitle] = useState('');
   const [color, setColor] = useState('none');
@@ -49,6 +51,7 @@ const PostProjects = () => {
       setColor('none')
       setFavorite(false)
 			setHasSubmitted(false);
+      history.push('/')
 		}
 	};
 

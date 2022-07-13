@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { postTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'
 import '../../css/main.css'
 
 const PostTask = () => {
@@ -22,10 +23,8 @@ const PostTask = () => {
 
   const [task, setTask] = useState('');
   const [project_id, setProject] = useState();
-  console.log(project_id, "look here")
   const [priority, setPriority] = useState(4);
-  const [dueDate, setDueDate] = useState();
-  const [value, onChange] = useState(new Date());
+  const [dueDate, setDueDate] = useState(new Date());
   // const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
@@ -35,16 +34,16 @@ const PostTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const dbDateConversion = dueDate.getFullYear() + "-" + (dueDate.getMonth() + 1) + "-" + dueDate.getDate()
+
     const payload = {
       task,
       project_id,
       priority,
-      dueDate
+      due_date: dbDateConversion
     };
 
     const id = parseInt(project_id)
-
-    console.log(project_id)
 
     await dispatch(postTask(payload))
     .then(history.push(`/projects/${id}`))
@@ -95,9 +94,12 @@ const PostTask = () => {
             <div>Due Date Cal Comp</div>
         </div>
         <div className='PostTaskCalendarContainer'>
-          <Calendar onChange={onChange} value={value} />
+          <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
         </div>
         <button type="submit">Submit New Task</button>
+        <NavLink to='/'>
+          Cancel
+        </NavLink>
       </form>
     </div>
   );

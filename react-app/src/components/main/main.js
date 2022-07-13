@@ -1,11 +1,11 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import Collapsible from 'react-collapsible';
 import GetProjects from '../projects/getProjects';
-import PostProjects from '../projects/postProjects';
 import GetTasks from '../tasks/getTasks';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
+import { BsPlusLg } from 'react-icons/bs'
 import '../../css/main.css'
 
 
@@ -15,18 +15,28 @@ function MainRoutes() {
 
   const triggerWhenOpen =
     <div className='TriggerContainer'>
-      <MdKeyboardArrowDown />
-      <div className='TriggerText'>
-        Projects
+      <div className='TriggerContainerLeft'>
+        <MdKeyboardArrowDown />
+        <div className='TriggerText'>
+          Projects
+        </div>
       </div>
+      <NavLink to='/projects' exact ={true} className='PostProjectNavLink'>
+        <BsPlusLg />
+      </NavLink>
     </div>
 
   const trigger =
     <div className='TriggerContainer'>
-      <MdKeyboardArrowRight />
-      <div className='TriggerText'>
-        Projects
+      <div className='TriggerContainerLeft'>
+        <MdKeyboardArrowRight />
+        <div className='TriggerText'>
+          Projects
+        </div>
       </div>
+      <NavLink to='/projects' exact ={true} className='PostProjectNavLink'>
+        <BsPlusLg />
+      </NavLink>
     </div>
 
 
@@ -38,7 +48,6 @@ function MainRoutes() {
             <div className='CollapsibleElements'>
               <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                 <GetProjects />
-                <PostProjects />
               </Collapsible>
             </div>
           </div>
@@ -48,7 +57,6 @@ function MainRoutes() {
             <div className='CollapsibleElements'>
               <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                 <GetProjects />
-                <PostProjects />
               </Collapsible>
             </div>
             <GetTasks />

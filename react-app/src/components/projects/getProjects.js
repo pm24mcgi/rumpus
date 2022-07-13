@@ -23,9 +23,9 @@ const GetProjects = () => {
     <div className='ProjectContainer'>
       {projects.map((project) => {
         return(
-          <div className='ProjectNavLinksWithEdit'>
+          <div className='ProjectNavLinksWithEdit' key={project.id}>
             {(sessionUser.id === project.user_id) &&
-            <NavLink key={project.id} style={{ textDecoration: 'none' }} to={`/projects/${project.id}`} className=
+            <NavLink style={{ textDecoration: 'none' }} to={`/projects/${project.id}`} className=
             {Number.parseInt(projectId) === project.id
               ? "nav-entry is-selected"
               : "nav-entry"}>

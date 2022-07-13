@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks'
+import PostTask from './postTasks';
+import { BsPlusLg } from 'react-icons/bs'
 
 
 const GetTasks = () => {
@@ -15,7 +17,6 @@ const GetTasks = () => {
   }, [dispatch])
 
   const project = projects.filter((e) => e.id == project_id)
-  console.log(project)
 
   return(
     <div className='TaskContainer'>
@@ -25,16 +26,20 @@ const GetTasks = () => {
         </div>
         {tasks.map((task) => {
           if (project_id == task.project_id) {
-            console.log("Match")
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+            const date = new Date(task.due_date).toLocaleDateString("en-US", options)
             return (
               <div key={task.id} className='IndvTaskContainer'>
                 <div>{task.task}</div>
-                {/* <div>{task.due_date}</div>
-                <div>{task.completed}</div> */}
+                <div>{date}</div>
+                <div>{task.completed}</div>
               </div>
             )
           }
         })}
+        <NavLink to='/tasks' exact={true} activeClassName='active'>
+          <BsPlusLg /> Add a task...
+        </NavLink>
       </div>
     </div>
   );
