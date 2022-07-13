@@ -57,41 +57,41 @@ const PostTask = () => {
       <form onSubmit={handleSubmit}>
         <div>
         <label>Task</label>
-            <input
-            className="inputForm"
-            required
-            name="task"
-            type="text"
-            placeholder='Set a new task...'
-            onChange={(e) => setTask(e.target.value)}
-            value={task}
-            />
-         <select
-            className="inputForm"
-            required
-            name="project"
-            onChange={(e) => setProject(e.target.value)}
-            value={project_id}
-            >
-            <option disabled selected>Select a project...</option>
-            {projects.map((option) => (
-              <option key={option.id} value={option.id}>{option.title}</option>
-            ))}
+          <input
+          className="inputForm"
+          required
+          name="task"
+          type="text"
+          placeholder='Set a new task...'
+          onChange={(e) => setTask(e.target.value)}
+          value={task}
+          />
+        <select
+          className="inputForm"
+          required
+          name="project"
+          onChange={(e) => setProject(e.target.value)}
+          value={project_id}
+          >
+          <option disabled selected>Select a project...</option>
+          {projects.map((option) => (
+            <option key={option.id} value={option.id}>{option.title}</option>
+          ))}
+        </select>
+        <select
+          className="inputForm"
+          required
+          name="priority"
+          onChange={(e) => setPriority(e.target.value)}
+          value={priority}
+          >
+            <option disabled selected>Priority...</option>
+            <option value="1">Priority 1</option>
+            <option value="2">Priority 2</option>
+            <option value="3">Priority 3</option>
+            <option value="4">Priority 4</option>
           </select>
-          <select
-            className="inputForm"
-            required
-            name="priority"
-            onChange={(e) => setPriority(e.target.value)}
-            value={priority}
-            >
-              <option disabled selected>Priority...</option>
-              <option value="1">Priority 1</option>
-              <option value="2">Priority 2</option>
-              <option value="3">Priority 3</option>
-              <option value="4">Priority 4</option>
-            </select>
-            <div>Due Date Cal Comp</div>
+          <div>Due Date</div>
         </div>
         <div className='PostTaskCalendarContainer'>
           <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
