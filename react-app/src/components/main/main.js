@@ -4,7 +4,8 @@ import Collapsible from 'react-collapsible';
 import GetProjects from '../projects/getProjects';
 import PostProjects from '../projects/postProjects';
 import GetTasks from '../tasks/getTasks';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 import '../../css/main.css'
 
 
@@ -12,13 +13,21 @@ import '../../css/main.css'
 
 function MainRoutes() {
 
-  const trigger =
-  <div className='TriggerContainer'>
-    <GiHamburgerMenu />
-    <div className='TriggerText'>
-      Projects
+  const triggerWhenOpen =
+    <div className='TriggerContainer'>
+      <MdKeyboardArrowDown />
+      <div className='TriggerText'>
+        Projects
+      </div>
     </div>
-  </div>
+
+  const trigger =
+    <div className='TriggerContainer'>
+      <MdKeyboardArrowRight />
+      <div className='TriggerText'>
+        Projects
+      </div>
+    </div>
 
 
   return (
@@ -27,7 +36,7 @@ function MainRoutes() {
         <Route path='/' exact ={true}>
           <div className='ProjectContainer'>
             <div className='CollapsibleElements'>
-              <Collapsible trigger={trigger} transitionTime={75} open={true}>
+              <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                 <GetProjects />
                 <PostProjects />
               </Collapsible>
@@ -37,7 +46,7 @@ function MainRoutes() {
         <Route path='/projects/:project_id' >
           <div className='ProjectDetailMainContainer'>
             <div className='CollapsibleElements'>
-              <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+              <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                 <GetProjects />
                 <PostProjects />
               </Collapsible>
