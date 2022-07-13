@@ -12,6 +12,14 @@ import '../../css/main.css'
 
 function MainRoutes() {
 
+  const trigger =
+  <div className='TriggerContainer'>
+    <GiHamburgerMenu />
+    <div className='TriggerText'>
+      Projects
+    </div>
+  </div>
+
 
   return (
     <div className='MainContainer'>
@@ -19,7 +27,7 @@ function MainRoutes() {
         <Route path='/' exact ={true}>
           <div className='ProjectContainer'>
             <div className='CollapsibleElements'>
-              <Collapsible trigger={<GiHamburgerMenu />} transitionTime={75} open={true}>
+              <Collapsible trigger={trigger} transitionTime={75} open={true}>
                 <GetProjects />
                 <PostProjects />
               </Collapsible>

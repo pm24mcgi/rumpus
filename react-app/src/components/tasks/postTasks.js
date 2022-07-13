@@ -42,8 +42,12 @@ const PostTask = () => {
       dueDate
     };
 
+    const id = parseInt(project_id)
+
+    console.log(project_id)
+
     await dispatch(postTask(payload))
-    .then(history.push('/projects/${project_id}'))
+    .then(history.push(`/projects/${id}`))
   };
 
   return (

@@ -7,6 +7,15 @@
   padding-bottom: 5px;
 }
 
+.TriggerContainer {
+  display: flex;
+  cursor: pointer;
+}
+
+.TriggerText {
+  margin-left: 15px;
+}
+
 .CollapsibleElements {
   padding-left: 25px;
   padding-top: 25px;
