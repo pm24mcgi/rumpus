@@ -14,9 +14,9 @@ const NavBar = () => {
     sessionLinks = (
     <>
       <nav className='NavBarContainer'>
-        <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+        {/* <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
           Home
-        </NavLink>
+        </NavLink> */}
         <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement'>
           <BsPlusLg />
         </NavLink>

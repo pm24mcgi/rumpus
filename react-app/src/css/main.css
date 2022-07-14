@@ -5,6 +5,27 @@
   background-color: #d1453b;
   padding-top: 5px;
   padding-bottom: 5px;
+  height: 20px;
+}
+
+.MainContainer {
+}
+
+.LeftBarNavigation {
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: calc(100vh - 30px);
+}
+
+.TopBarNavigators {
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+  width: 350px;
+  background-color: rgb(246, 246, 246);
+  display: flex;
+  flex-direction: column;
 }
 
 .TriggerContainer {
@@ -19,21 +40,16 @@
 }
 
 .TriggerText {
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .CollapsibleElements {
   padding-left: 25px;
   padding-top: 25px;
   padding-right: 25px;
-  background-color: rgb(246, 246, 246);
   height: 95vh;
   width: 350px;
-
-}
-
-.PostProjectNavLink {
-
+  background-color: rgb(246, 246, 246);
 }
 
 .ProjectContainer {
@@ -77,7 +93,22 @@
 .ProjectNavLinksWithEdit {
   display: flex;
   justify-content: space-between;
-  width: 250px;
+  width: 330px;
+  padding-left: 20px;
+}
+
+.ProjectNavLinkText {
+  max-width: 300px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+}
+
+.ProjectNavLinkText.nav-entry.is-selected {
+  color: rgb(0, 0, 0);
+  font-weight: 900;
 }
 
 .ProjectEditDots {
@@ -112,4 +143,24 @@
   margin-left: 8px;
   font-size: 14px;
   color: rgb(121, 121, 121);
+}
+
+.AddATaskNav {
+  text-decoration: none;
+}
+
+.AddATaskOnTaskLists {
+  margin: 15px;
+  padding: 5px;
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.AddATaskOnTaskListsText {
+  margin-left: 10px;
+  color: black;
 }

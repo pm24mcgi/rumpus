@@ -23,7 +23,7 @@ const PostTask = () => {
 
   const [task, setTask] = useState('');
   const [project_id, setProject] = useState();
-  const [priority, setPriority] = useState(4);
+  // const [priority, setPriority] = useState(4);
   const [dueDate, setDueDate] = useState(new Date());
   // const [validationErrors, setValidationErrors] = useState([]);
 
@@ -39,7 +39,7 @@ const PostTask = () => {
     const payload = {
       task,
       project_id,
-      priority,
+      priority:4,
       due_date: dbDateConversion
     };
 
@@ -78,7 +78,7 @@ const PostTask = () => {
             <option key={option.id} value={option.id}>{option.title}</option>
           ))}
         </select>
-        <select
+        {/* <select
           className="inputForm"
           required
           name="priority"
@@ -90,7 +90,7 @@ const PostTask = () => {
             <option value="2">Priority 2</option>
             <option value="3">Priority 3</option>
             <option value="4">Priority 4</option>
-          </select>
+          </select> */}
           <div>Due Date</div>
         </div>
         <div className='PostTaskCalendarContainer'>

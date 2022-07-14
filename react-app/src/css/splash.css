@@ -1,0 +1,11 @@
+.SplashPageContainer {
+  width: 100vw;
+}
+
+.SplashImgLarge {
+  width: 65%;
+}
+
+.SplashImgSmall {
+  width: 30%;
+}

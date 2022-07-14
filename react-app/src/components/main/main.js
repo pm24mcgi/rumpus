@@ -7,6 +7,8 @@ import AllTasks from '../tasks/AllTasks';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsPlusLg } from 'react-icons/bs'
+import { AiOutlineHome } from 'react-icons/ai'
+import { MdCalendarToday } from 'react-icons/md'
 import '../../css/main.css'
 
 
@@ -43,28 +45,70 @@ function MainRoutes() {
 
   return (
     <div className='MainContainer'>
-      <Switch>
-        <Route path='/' exact ={true}>
-          <div className='ProjectContainer'>
-            <div className='CollapsibleElements'>
-              <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
-                <GetProjects />
-                <AllTasks />
-              </Collapsible>
+      <div className='LeftBarNavigation'>
+        <Switch>
+          <Route path='/' exact ={true}>
+            <div className='TopBarNavigators'>
+              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+                <AiOutlineHome />
+                All Tasks
+              </NavLink>
+              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+                <MdCalendarToday />
+                Today
+              </NavLink>
             </div>
-          </div>
-        </Route>
-        <Route path='/projects/:project_id' >
-          <div className='ProjectDetailMainContainer'>
-            <div className='CollapsibleElements'>
-              <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
-                <GetProjects />
-              </Collapsible>
+            <div className='ProjectContainer'>
+              <div className='CollapsibleElements'>
+                <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
+                  <GetProjects />
+                  <AllTasks />
+                </Collapsible>
+              </div>
             </div>
-            <GetTasks />
-          </div>
-        </Route>
-      </Switch>
+          </Route>
+          <Route path='/today' exact ={true}>
+            <div className='TopBarNavigators'>
+              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+                <AiOutlineHome />
+                All Tasks
+              </NavLink>
+              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+                <MdCalendarToday />
+                Today
+              </NavLink>
+            </div>
+            <div className='ProjectContainer'>
+              <div className='CollapsibleElements'>
+                <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
+                  <GetProjects />
+                  {/* <AllTasks /> */}
+                </Collapsible>
+              </div>
+            </div>
+          </Route>
+          <Route path='/projects/:project_id' >
+            <div className='TopBarNavigators'>
+              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+                <AiOutlineHome />
+                All Tasks
+              </NavLink>
+              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+                <MdCalendarToday />
+                Today
+              </NavLink>
+            </div>
+            <div className='ProjectDetailMainContainer'>
+              <div className='CollapsibleElements'>
+                <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
+                  <GetProjects />
+                </Collapsible>
+              </div>
+              <GetTasks />
+            </div>
+          </Route>
+        </Switch>
+      </div>
     </div>
   )
 }

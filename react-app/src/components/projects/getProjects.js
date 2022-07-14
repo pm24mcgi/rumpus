@@ -23,13 +23,8 @@ const GetProjects = () => {
         return(
           <div className='ProjectNavLinksWithEdit' key={project.id}>
             {(sessionUser.id === project.user_id) &&
-            <NavLink style={{ textDecoration: 'none' }} to={`/projects/${project.id}`} className=
-            {Number.parseInt(projectId) === project.id
-              ? "nav-entry is-selected"
-              : "nav-entry"}>
-                <div className='ProjectNavLinkText'>
-                  {project.title}
-                </div>
+            <NavLink style={{ textDecoration: 'none' }} to={`/projects/${project.id}`} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
+              {project.title}
             </NavLink>}
             {(sessionUser.id === project.user_id) &&
             <div className='ProjectEditDots'>

@@ -49,8 +49,15 @@ const AllTasks = () => {
             </div>
           )
           })}
-        <NavLink to='/tasks' exact={true} activeClassName='active'>
-          <BsPlusLg /> Add a task...
+        <NavLink to='/tasks' exact={true} className='AddATaskNav'>
+          <div className='AddATaskOnTaskLists'>
+            <div>
+              <BsPlusLg />
+            </div>
+            <div className='AddATaskOnTaskListsText'>
+              Add a task...
+            </div>
+          </div>
         </NavLink>
       </div>
     </div>
