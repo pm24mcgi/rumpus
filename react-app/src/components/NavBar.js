@@ -13,14 +13,18 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
     <>
-      <nav className='NavBarContainer'>
+      <nav className='NavBarContainerSessionUser'>
         {/* <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
           Home
         </NavLink> */}
-        <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement'>
-          <BsPlusLg />
-        </NavLink>
-        <LogoutButton />
+        <div className='NavBarCompSessionUser'>
+          <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement NavBarNavLink'>
+            <BsPlusLg />
+          </NavLink>
+        </div>
+        <div className='NavBarCompSessionUser'>
+          <LogoutButton />
+        </div>
       </nav>
     </>)
   } else {

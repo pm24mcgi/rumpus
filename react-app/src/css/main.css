@@ -1,14 +1,24 @@
-.NavBarContainer {
+.NavBarContainerSessionUser {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-end;
+  align-items: center;
   background-color: #d1453b;
   padding-top: 5px;
   padding-bottom: 5px;
   height: 20px;
 }
 
-.MainContainer {
+.NavBarCompSessionUser {
+  margin-right: 35px;
+}
+
+.NavBarElement.NavBarNavLink {
+  color: black;
+}
+
+.PostProjectNavLink {
+  color: black;
 }
 
 .LeftBarNavigation {

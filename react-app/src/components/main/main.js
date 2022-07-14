@@ -25,7 +25,7 @@ function MainRoutes() {
         </div>
       </div>
       <NavLink to='/projects' exact ={true} className='PostProjectNavLink'>
-        <BsPlusLg />
+        <BsPlusLg size={13}/>
       </NavLink>
     </div>
 
