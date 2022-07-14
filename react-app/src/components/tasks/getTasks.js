@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks'
 import { BsPlusLg } from 'react-icons/bs'
+import { HiOutlinePencilAlt } from 'react-icons/hi'
+import EditTask from './editTasks';
 
 
 const GetTasks = () => {
@@ -10,6 +12,8 @@ const GetTasks = () => {
   const tasks = Object.values(useSelector(state => state.task))
   const projects = Object.values(useSelector(state => state.project))
   const { project_id } = useParams();
+
+  const [editOpen, setEditOpen] = useState(false)
 
   useEffect(() => {
     dispatch(getTasks());
@@ -25,6 +29,10 @@ const GetTasks = () => {
     }
   });
 
+  const onClick = () => {
+    setEditOpen(!editOpen)
+  }
+
   return(
     <div className='TaskContainer'>
       <div className='TaskContainerInternal'>
@@ -36,10 +44,17 @@ const GetTasks = () => {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
             const date = new Date(task.due_date).toLocaleDateString("en-US", options)
             return (
-              <div key={task.id} className='IndvTaskContainer'>
-                <div>{task.task}</div>
-                <div>{date}</div>
-                <div>{task.completed}</div>
+              <div className='IndvTaskContainerOutter'>
+                <div key={task.id} className='IndvTaskContainer'>
+                  <div>{task.task}</div>
+                  <div>{date}</div>
+                  <div>{task.completed}</div>
+                </div>
+                <div>
+                  <HiOutlinePencilAlt onClick={onClick}/>
+                  {editOpen &&
+                  <EditTask oneTask={task} setEditOpen={setEditOpen}/>}
+                </div>
               </div>
             )
           }

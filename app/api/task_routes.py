@@ -48,7 +48,6 @@ def update_review(task_id):
     if form.validate_on_submit():
         task.project_id=data['project_id'],
         task.task=data['task'],
-        task.completed=data['completed'],
         task.priority=data['priority'],
         task.due_date=data['due_date']
         db.session.commit()
