@@ -49,11 +49,11 @@ function MainRoutes() {
         <Switch>
           <Route path='/' exact ={true}>
             <div className='TopBarNavigators'>
-              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
                 Today
               </NavLink>
@@ -69,11 +69,11 @@ function MainRoutes() {
           </Route>
           <Route path='/today' exact ={true}>
             <div className='TopBarNavigators'>
-              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
                 Today
               </NavLink>
@@ -89,11 +89,11 @@ function MainRoutes() {
           </Route>
           <Route path='/projects/:project_id' >
             <div className='TopBarNavigators'>
-              <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} activeClassName='active' className='NavBarElement'>
+              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
                 Today
               </NavLink>

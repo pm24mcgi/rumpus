@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import { postProject } from '../../store/projects'
 
@@ -101,6 +101,11 @@ const PostProjects = () => {
           </div>
           <button className="Submit Btn" type="submit">
           + Add Project
+          </button>
+          <button>
+            <NavLink to='/' className='CancelNavLinkText'>
+              Cancel
+            </NavLink>
           </button>
         </form>
       </div>

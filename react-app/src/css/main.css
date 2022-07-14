@@ -164,3 +164,8 @@
   margin-left: 10px;
   color: black;
 }
+
+.CancelNavLinkText {
+  text-decoration: none;
+  color: black;
+}

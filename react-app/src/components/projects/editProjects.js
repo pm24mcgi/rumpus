@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import { editProject } from '../../store/projects'
 import ColorSelect from '../customSelect/customSelect';
@@ -105,6 +105,11 @@ const EditProjects = () => {
           Edit Project
           </button>
           <DeleteProjects id={id}/>
+          <button>
+            <NavLink to='/' className='CancelNavLinkText'>
+              Cancel
+            </NavLink>
+          </button>
         </form>
       </div>
     </div>

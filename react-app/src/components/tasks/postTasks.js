@@ -97,9 +97,11 @@ const PostTask = () => {
           <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
         </div>
         <button type="submit">Submit New Task</button>
-        <NavLink to='/'>
-          Cancel
-        </NavLink>
+        <button>
+          <NavLink to='/' className='CancelNavLinkText'>
+            Cancel
+          </NavLink>
+        </button>
       </form>
     </div>
   );
