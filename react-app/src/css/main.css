@@ -1,7 +1,7 @@
 .NavBarContainerSessionUser {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   background-color: #d1453b;
   padding-top: 5px;
@@ -11,6 +11,13 @@
 
 .NavBarCompSessionUser {
   margin-right: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.HomeButtonSessionUser {
+  margin-left: 35px;
+  color: white;
 }
 
 .NavBarContainer {
@@ -39,7 +46,7 @@
 }
 
 .NavBarElement.NavBarNavLink {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .PostProjectNavLink {

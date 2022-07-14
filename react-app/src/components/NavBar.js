@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import { BsPlusLg } from 'react-icons/bs'
+import { AiOutlineHome } from 'react-icons/ai'
 import '../css/main.css'
 
 const NavBar = () => {
@@ -14,16 +15,18 @@ const NavBar = () => {
     sessionLinks = (
     <>
       <nav className='NavBarContainerSessionUser'>
-        {/* <NavLink to='/' exact={true} activeClassName='active' className='NavBarElement'>
-          Home
-        </NavLink> */}
+        <NavLink to='/' exact={true} className='HomeButtonSessionUser'>
+          <AiOutlineHome size={25}/>
+        </NavLink>
         <div className='NavBarCompSessionUser'>
-          <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement NavBarNavLink'>
-            <BsPlusLg />
-          </NavLink>
-        </div>
-        <div className='NavBarCompSessionUser'>
-          <LogoutButton />
+          <div className='NavBarCompSessionUser'>
+            <NavLink to='/tasks' exact={true} activeClassName='active' className='NavBarElement NavBarNavLink'>
+              <BsPlusLg />
+            </NavLink>
+          </div>
+          <div className='NavBarCompSessionUser'>
+            <LogoutButton />
+          </div>
         </div>
       </nav>
     </>)
