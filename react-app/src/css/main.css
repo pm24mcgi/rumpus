@@ -65,8 +65,8 @@
 }
 
 .TaskContainerProjectDescription {
-  font-size: 40px;
-  font-weight: bold;
+  font-weight:999;
+  font-size: 22px;
   border-bottom: rgb(46, 46, 46) solid 1px;
 }
 
@@ -105,7 +105,7 @@
   align-items: flex-end;
   font-weight:999;
   font-size: 22px;
-  border-bottom: 1px solid grey;
+  border-bottom: rgb(46, 46, 46) solid 1px;
 }
 
 .TodaysDateDisplayAllTasks {

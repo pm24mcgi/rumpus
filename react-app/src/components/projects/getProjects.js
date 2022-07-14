@@ -5,8 +5,6 @@ import { getProjects } from '../../store/projects';
 import Collapsible from 'react-collapsible';
 import { BsThreeDots } from 'react-icons/bs';
 import { HiOutlinePencilAlt } from 'react-icons/hi'
-import EditProjects from './editProjects';
-import DeleteProjects from './deleteProjects';
 import '../../css/main.css'
 
 const GetProjects = () => {
@@ -36,7 +34,9 @@ const GetProjects = () => {
             {(sessionUser.id === project.user_id) &&
             <div className='ProjectEditDots'>
               <Collapsible trigger={<BsThreeDots />} transitionTime={0.1}>
-                <HiOutlinePencilAlt />
+                <NavLink to={`/projects/${project.id}/edit`}>
+                  <HiOutlinePencilAlt />
+                </NavLink>
               </Collapsible>
             </div>}
           </div>

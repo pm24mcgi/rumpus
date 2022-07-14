@@ -12,6 +12,7 @@ import MainRoutes from './components/main/main'
 import Splash from './components/Splash'
 import PostTask from './components/tasks/postTasks'
 import PostProjects from './components/projects/postProjects'
+import EditProjects from './components/projects/editProjects';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/projects' exact={true} >
           <PostProjects />
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:project_id/edit' exact={true} >
+          <EditProjects />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

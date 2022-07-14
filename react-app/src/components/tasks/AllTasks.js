@@ -16,8 +16,6 @@ const AllTasks = () => {
 
   const today = new Date().toLocaleDateString("en-US", options2);
 
-  console.log(allTasks, "pre-sort")
-
 
   useEffect(() => {
     dispatch(getTasks());
@@ -30,8 +28,6 @@ const AllTasks = () => {
       return -1
     }
   });
-
-  console.log(allTasks, "post-sort")
 
   return(
     <div className='TaskContainer'>
