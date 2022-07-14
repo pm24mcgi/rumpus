@@ -12,58 +12,26 @@ const AllTasks = () => {
 
   const allTasks = tasks.filter((e) => e.user_id === userId);
 
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const options2 = { weekday: 'short', month: 'short', day: 'numeric' };
 
   const today = new Date().toLocaleDateString("en-US", options2);
 
-  const dateCheck = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-  dateCheck.setHours(0, 0, 0, 0);
+  console.log(allTasks, "pre-sort")
 
-  let overdue = []
-  let dueToday = []
-  let upcomming = []
 
   useEffect(() => {
     dispatch(getTasks());
-
-    allTasks.map((task) => {
-      const date = new Date(task.due_date)
-      if ((new Date(date)) < (new Date(dateCheck))) {
-        overdue.push(task)
-      } else if ((new Date(date)) - (dateCheck) < (24 * 60 * 60 * 1000)) {
-        dueToday.push(task)
-      } else if ((new Date(date)) > (new Date(dateCheck))) {
-        upcomming.push(task)
-      }
-    })
-
-    // console.log(overdue)
-
-    overdue.sort((objA, objB) => {
-      if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
-        return 1
-      } else {
-        return -1
-      }
-    });
-
-    dueToday.sort((objA, objB) => {
-      if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
-        return 1
-      } else {
-        return -1
-      }
-    });
-
-    upcomming.sort((objA, objB) => {
-      if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
-        return 1
-      } else {
-        return -1
-      }
-    });
   }, []);
+
+  allTasks.sort((objA, objB) => {
+    if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
+      return 1
+    } else {
+      return -1
+    }
+  });
+
+  console.log(allTasks, "post-sort")
 
   return(
     <div className='TaskContainer'>
@@ -74,14 +42,17 @@ const AllTasks = () => {
             {today}
           </div>
         </div>
-        {/* {overdue.length > 0 &&
-        <div>Overdue</div> ?
-          overdue.map((task) => {}
-            return(
-              <div>{task.title</div>
-            )
-          })
-        : null} */}
+        {allTasks.map((task) => {
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+          const date = new Date(task.due_date).toLocaleDateString("en-US", options)
+          return (
+            <div key={task.id} className='IndvTaskContainer'>
+              <div>{task.task}</div>
+              <div>{date}</div>
+              <div>{task.completed}</div>
+            </div>
+          )
+          })}
         <NavLink to='/tasks' exact={true} activeClassName='active'>
           <BsPlusLg /> Add a task...
         </NavLink>

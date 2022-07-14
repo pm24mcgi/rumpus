@@ -17,6 +17,14 @@ const GetTasks = () => {
 
   const project = projects.filter((e) => e.id == project_id)
 
+  tasks.sort((objA, objB) => {
+    if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
+      return 1
+    } else {
+      return -1
+    }
+  });
+
   return(
     <div className='TaskContainer'>
       <div className='TaskContainerInternal'>
