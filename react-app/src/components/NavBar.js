@@ -31,15 +31,27 @@ const NavBar = () => {
     sessionLinks = (
     <>
       <nav className='NavBarContainer'>
-        <NavLink to='/splash' exact={true} activeClassName='active' className='NavBarElement'>
-          Home
-        </NavLink>
-        <NavLink to='/login' exact={true} activeClassName='active' className='NavBarElement'>
-          Login
-        </NavLink>
-        <NavLink to='/sign-up' exact={true} activeClassName='active' className='NavBarElement'>
-          Sign Up
-        </NavLink>
+        <div className='NavBarComp'>
+          <button className='NavBarCompButton'>
+            <NavLink to='/splash' exact={true} className='NavBarElement'>
+              Home
+            </NavLink>
+          </button>
+        </div>
+        <div className='NavBarComp'>
+          <button className='NavBarCompButton'>
+            <NavLink to='/login' exact={true} className='NavBarElement'>
+              Login
+            </NavLink>
+          </button>
+        </div>
+        <div className='NavBarComp'>
+          <button className='NavBarCompButton'>
+            <NavLink to='/sign-up' exact={true} className='NavBarElement'>
+              Sign Up
+            </NavLink>
+          </button>
+        </div>
         {/* <NavLink to='/users' exact={true} activeClassName='active' className='NavBarElement'>
           Users
         </NavLink> */}
