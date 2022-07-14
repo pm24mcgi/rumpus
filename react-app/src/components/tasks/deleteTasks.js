@@ -7,7 +7,6 @@ const DeleteTask = ({id}) => {
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteTask(id))
-    dispatch(getTasks())
   };
 
   return (

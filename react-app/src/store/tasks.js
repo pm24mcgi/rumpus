@@ -77,8 +77,7 @@ export const deleteTask = (task_id) => async dispatch => {
   });
 
   if (response.ok) {
-    const task = await response.json();
-    dispatch(remove(task));
+    dispatch(remove(task_id));
   };
 };
 

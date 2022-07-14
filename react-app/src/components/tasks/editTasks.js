@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { editTask } from '../../store/tasks'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'
+import DeleteTask from './deleteTasks'
 
-const EditTask = () => {
+const EditTask = ({oneTask, setEditOpen}) => {
+  console.log(oneTask)
   const dispatch = useDispatch();
   const userId = useSelector(state => state.session.user.id)
   const allProjects = Object.values(useSelector(state => state.project))
@@ -17,10 +21,10 @@ const EditTask = () => {
     }
   })
 
-  const [task, setTask] = useState('');
-  const [project_id, setProject] = useState();
-  const [priority, setPriority] = useState(4);
-  const [dueDate, setDueDate] = useState();
+  const [task, setTask] = useState(oneTask?.task);
+  const [project_id, setProject] = useState(oneTask?.project_id);
+  // const [priority, setPriority] = useState(4);
+  const [dueDate, setDueDate] = useState(new Date(oneTask.due_date));
   // const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
@@ -30,15 +34,21 @@ const EditTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const dbDateConversion = dueDate.getFullYear() + "-" + (dueDate.getMonth() + 1) + "-" + dueDate.getDate()
+
     const payload = {
       task,
       project_id,
-      priority,
-      dueDate
+      priority:4,
+      due_date: dbDateConversion
     };
 
-    await dispatch(editTask(payload))
+    await dispatch(editTask(payload, oneTask.id))
   };
+
+  const onClick = () => {
+    setEditOpen(false)
+  }
 
   return (
     <div>
@@ -68,7 +78,7 @@ const EditTask = () => {
               <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-          <select
+          {/* <select
             className="inputForm"
             required
             name="priority"
@@ -79,13 +89,17 @@ const EditTask = () => {
               <option value="2">Priority 2</option>
               <option value="3">Priority 3</option>
               <option value="4">Priority 4</option>
-            </select>
-            <div>Due Date Cal Comp</div>
+            </select> */}
+            <div className='PostTaskCalendarContainer'>
+              <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
+            </div>
         </div>
         <button type="submit">Submit Task Edit</button>
+        <DeleteTask id={oneTask.id}/>
+        <button onClick={onClick}>Cancel</button>
       </form>
     </div>
   );
 };
 
-export default PostTask;
+export default EditTask;
