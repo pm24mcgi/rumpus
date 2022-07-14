@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import Select, { components } from "react-select";
+import React from "react";
+import Select from "react-select";
 import '../../css/main.css'
 
 function ColorSelect({ defaultValue, setColor }) {
@@ -9,7 +9,7 @@ function ColorSelect({ defaultValue, setColor }) {
     {value: 'red', label: 'Red', color:'#d42b2d'},
     {value: 'green', label: 'Green', color:'#27d838'},
     {value: 'blue', label: 'Blue', color:'#2570da'},
-    {value: 'yellow', label: 'Yellow', color:'#e7b818'},
+    // {value: 'yellow', label: 'Yellow', color:'#e7b818'},
     {value: 'orange', label: 'Orange', color:'#e5791a'}
   ]
 
@@ -23,6 +23,8 @@ function ColorSelect({ defaultValue, setColor }) {
     alignItems: 'center',
     fontSize: 15,
     textDecoration: 'none',
+    padding: 2,
+    margin: 0,
 
     ':before': {
       backgroundColor: color,
@@ -40,7 +42,7 @@ function ColorSelect({ defaultValue, setColor }) {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      height: 35,
+      height: 20,
       textDecoration: 'none'
     }),
     option: (style, { data }) => ({ ...style, ...display(data.color) }),
@@ -58,6 +60,7 @@ function ColorSelect({ defaultValue, setColor }) {
       options={options}
       styles={style}
       onChange={(e) => setColor(e.value)}
+      className='ColorPicker'
     />
   )
 };

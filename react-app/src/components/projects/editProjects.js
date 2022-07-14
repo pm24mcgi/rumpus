@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import { editProject } from '../../store/projects'
 import ColorSelect from '../customSelect/customSelect';
@@ -8,6 +8,7 @@ import DeleteProjects from './deleteProjects';
 
 const EditProjects = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const projectIdObj = useParams();
   const id = projectIdObj.project_id
 
@@ -71,6 +72,7 @@ const EditProjects = () => {
 			await dispatch(editProject(data, id));
 			setValidationErrors([]);
 			setHasSubmitted(false);
+      history.push('/')
 		}
 	};
 

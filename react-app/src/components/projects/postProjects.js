@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory, NavLink } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import { postProject } from '../../store/projects'
+import ColorSelect from '../customSelect/customSelect';
 
 const PostProjects = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,10 @@ const PostProjects = () => {
 	}, [
 		title
 	]);
+
+  const handleChange = (selectedColor) => {
+    setColor(selectedColor)
+  }
 
   const onSubmit = async (e) => {
 		e.preventDefault();
@@ -80,21 +85,7 @@ const PostProjects = () => {
             />
             <br></br>
             <label>Flag Color</label>
-            <select
-            className="inputForm"
-            required
-            name="color"
-            onChange={(e) => setColor(e.target.value)}
-            value={color}
-            >
-              <option value="none">None</option>
-              <option value="blue">Blue</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-              <option value="pink">pink</option>
-              <option value="purple">Purple</option>
-              <option value="yellow">Yellow</option>
-            </select>
+            <ColorSelect onChange={handleChange} setColor={setColor} defaultValue={color} />
             <br></br>
             {/* <label>Favorite</label>
             <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} /> */}

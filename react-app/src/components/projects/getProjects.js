@@ -24,7 +24,10 @@ const GetProjects = () => {
           <div className='ProjectNavLinksWithEdit' key={project.id}>
             {(sessionUser.id === project.user_id) &&
             <NavLink style={{ textDecoration: 'none' }} to={`/projects/${project.id}`} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-              {project.title}
+              <div className='ProjectMainWithColor'>
+                <div className='ProjectColorDisplay' style={{backgroundColor: `${project.color}`}}></div>
+                {project.title}
+              </div>
             </NavLink>}
             {(sessionUser.id === project.user_id) &&
             <div className='ProjectEditDots'>
