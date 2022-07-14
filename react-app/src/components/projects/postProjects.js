@@ -96,8 +96,8 @@ const PostProjects = () => {
               <option value="yellow">Yellow</option>
             </select>
             <br></br>
-            <label>Favorite</label>
-            {/* <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} /> */}
+            {/* <label>Favorite</label>
+            <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} /> */}
           </div>
           <button className="Submit Btn" type="submit">
           + Add Project
