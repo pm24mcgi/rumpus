@@ -26,7 +26,6 @@ function ColorSelect({ defaultValue, setColor }) {
 
   const display = (color) => ({
     display: 'flex',
-    justifyContent: 'flex-start',
     alignItems: 'center',
     fontSize: 15,
     textDecoration: 'none',
@@ -49,8 +48,8 @@ function ColorSelect({ defaultValue, setColor }) {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      height: 20,
-      textDecoration: 'none'
+      height: 2,
+      textDecoration: 'none',
     }),
     option: (style, { data }) => ({ ...style, ...display(data.color) }),
     singleValue: (style, { data }) => ({ ...style, ...display(data.color) }),
