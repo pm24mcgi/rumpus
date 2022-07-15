@@ -17,9 +17,23 @@
 }
 
 .TaskContainerProjectDescription {
+  display: flex;
+  align-items: center;
   font-weight:999;
   font-size: 22px;
   border-bottom: rgb(46, 46, 46) solid 2px;
+  padding-bottom: 3px;
+}
+
+.TaskContainerProjectDescriptionIcon {
+  margin-right: 5px;
+}
+
+.TaskContainerProjectDescriptionColor {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
 
 .IndvTaskContainer {

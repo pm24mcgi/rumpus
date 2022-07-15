@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks';
 import { BsPlusLg } from 'react-icons/bs';
+import { AiOutlineHome } from 'react-icons/ai'
 import '../../css/task.css'
 
 
@@ -36,8 +37,13 @@ const AllTasks = () => {
         {today}
       </div>
       <div className='TaskContainerInternal'>
-        <div className='AllTaskContainerDateContainer'>
-          All Tasks
+        <div className='TaskContainerProjectDescription'>
+          <div className='TaskContainerProjectDescriptionIcon'>
+            <AiOutlineHome />
+          </div>
+          <div>
+            All Tasks
+          </div>
         </div>
         {allTasks.map((task) => {
           const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }

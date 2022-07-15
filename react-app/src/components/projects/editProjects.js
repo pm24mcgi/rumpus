@@ -72,7 +72,7 @@ const EditProjects = () => {
 			await dispatch(editProject(data, id));
 			setValidationErrors([]);
 			setHasSubmitted(false);
-      history.push('/')
+      history.push(`/projects/${id}`)
 		}
 	};
 

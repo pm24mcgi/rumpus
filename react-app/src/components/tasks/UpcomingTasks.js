@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks';
 import { BsPlusLg } from 'react-icons/bs';
+import { MdCalendarToday } from 'react-icons/md'
 import '../../css/task.css'
 
 
@@ -40,8 +41,13 @@ const UpcommingTasks = () => {
         {today}
       </div>
       <div className='TaskContainerInternal'>
-        <div className='AllTaskContainerDateContainer'>
-          Upcoming
+        <div className='TaskContainerProjectDescription'>
+          <div className='TaskContainerProjectDescriptionIcon'>
+            <MdCalendarToday />
+          </div>
+          <div>
+            Upcoming
+          </div>
         </div>
         {tomorrowTasks.map((task) => {
           const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }

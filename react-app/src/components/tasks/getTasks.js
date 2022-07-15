@@ -34,11 +34,22 @@ const GetTasks = () => {
     setEditOpen(!editOpen)
   }
 
+  const options2 = { weekday: 'short', month: 'short', day: 'numeric' };
+
+  const today = new Date().toLocaleDateString("en-US", options2);
+
   return(
     <div className='TaskContainer'>
+      <div className='TodaysDateDisplayAllTasks'>
+        {today}
+      </div>
       <div className='TaskContainerInternal'>
         <div className='TaskContainerProjectDescription'>
+          <div className='TaskContainerProjectDescriptionColor' style={{backgroundColor: `${project[0]?.color}`}}>
+          </div>
+          <div>
           {project[0]?.title}
+          </div>
         </div>
         {tasks.map((task) => {
           if (project_id == task.project_id) {
