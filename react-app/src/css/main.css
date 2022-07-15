@@ -104,34 +104,6 @@
   display: flex;
 }
 
-.TaskContainer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 400px;
-  height: 96vh;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-}
-
-.TaskContainerInternal {
-  width: 55%;
-  padding-top: 35px;
-}
-
-.TaskContainerProjectDescription {
-  font-weight:999;
-  font-size: 22px;
-  border-bottom: rgb(46, 46, 46) solid 1px;
-}
-
-.IndvTaskContainer {
-  padding: 15px;
-}
-
 .ProjectNavLinksWithEdit {
   display: flex;
   justify-content: space-between;

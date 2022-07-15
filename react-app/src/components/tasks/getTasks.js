@@ -5,6 +5,7 @@ import { getTasks } from '../../store/tasks'
 import { BsPlusLg } from 'react-icons/bs'
 import { HiOutlinePencilAlt } from 'react-icons/hi'
 import EditTask from './editTasks';
+import '../../css/task.css'
 
 
 const GetTasks = () => {
@@ -48,9 +49,9 @@ const GetTasks = () => {
             return (
               <div className='IndvTaskContainerOutter'>
                 <div key={task.id} className='IndvTaskContainer'>
-                  <div>{task.task}</div>
-                  <div>{formatDate}</div>
-                  <div>{task.completed}</div>
+                <div className='IndvTask'>{task.task}</div>
+                <div className='IndvTaskDate'>Due: {formatDate}</div>
+                {/* <div>{task.completed}</div> */}
                 </div>
                 <div>
                   <HiOutlinePencilAlt onClick={onClick}/>

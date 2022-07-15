@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks';
 import { BsPlusLg } from 'react-icons/bs';
+import '../../css/task.css'
 
 
 const UpcommingTasks = () => {
@@ -49,9 +50,9 @@ const UpcommingTasks = () => {
           const formatDate = newDate.toLocaleDateString("en-US", options)
           return (
             <div key={task.id} className='IndvTaskContainer'>
-              <div>{task.task}</div>
-              <div>{formatDate}</div>
-              <div>{task.completed}</div>
+              <div className='IndvTask'>{task.task}</div>
+              <div className='IndvTaskDate'>Due: {formatDate}</div>
+              {/* <div>{task.completed}</div> */}
             </div>
           )
           })}
