@@ -48,7 +48,7 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path={['/', '/projects/:project_id', '/today']} exact={true} >
+        <ProtectedRoute path={['/', '/projects/:project_id', '/upcoming']} exact={true} >
           <MainRoutes />
         </ProtectedRoute>
         <ProtectedRoute path='/tasks' exact={true} >

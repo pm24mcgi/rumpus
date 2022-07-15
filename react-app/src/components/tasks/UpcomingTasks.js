@@ -5,7 +5,7 @@ import { getTasks } from '../../store/tasks';
 import { BsPlusLg } from 'react-icons/bs';
 
 
-const AllTasks = () => {
+const UpcommingTasks = () => {
   const dispatch = useDispatch();
   const tasks = Object.values(useSelector(state => state.task));
   const userId = useSelector(state => state.session.user.id);
@@ -21,7 +21,12 @@ const AllTasks = () => {
     dispatch(getTasks());
   }, []);
 
-  allTasks.sort((objA, objB) => {
+  allTasks.forEach((e) => console.log(new Date(e.due_date).setHours(0, 0, 0, 0)))
+  console.log(new Date().setHours(0, 0, 0, 0), "test")
+
+  const tomorrowTasks = allTasks.filter((e) => new Date(e.due_date).setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0))
+
+  tomorrowTasks.sort((objA, objB) => {
     if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
       return 1
     } else {
@@ -36,9 +41,9 @@ const AllTasks = () => {
       </div>
       <div className='TaskContainerInternal'>
         <div className='AllTaskContainerDateContainer'>
-          All Tasks
+          Upcoming
         </div>
-        {allTasks.map((task) => {
+        {tomorrowTasks.map((task) => {
           const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
           const date = new Date(task.due_date)
           const newDate = new Date(date.setDate(date.getDate() + 1))
@@ -66,4 +71,4 @@ const AllTasks = () => {
   );
 };
 
-export default AllTasks;
+export default UpcommingTasks;

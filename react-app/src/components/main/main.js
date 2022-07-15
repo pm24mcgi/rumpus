@@ -4,6 +4,8 @@ import Collapsible from 'react-collapsible';
 import GetProjects from '../projects/getProjects';
 import GetTasks from '../tasks/getTasks';
 import AllTasks from '../tasks/AllTasks';
+// import TodayTasks from '../tasks/TodayTasks';
+import UpcommingTasks from '../tasks/UpcomingTasks';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsPlusLg } from 'react-icons/bs'
@@ -53,9 +55,9 @@ function MainRoutes() {
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
+              <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
-                Today
+                Upcoming
               </NavLink>
             </div>
             <div className='ProjectContainer'>
@@ -67,22 +69,22 @@ function MainRoutes() {
               </div>
             </div>
           </Route>
-          <Route path='/today' exact ={true}>
+          <Route path='/upcoming' exact ={true}>
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
+              <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
-                Today
+                Upcoming
               </NavLink>
             </div>
             <div className='ProjectContainer'>
               <div className='CollapsibleElements'>
                 <Collapsible trigger={trigger} triggerWhenOpen={triggerWhenOpen} transitionTime={75} open={true}>
                   <GetProjects />
-                  {/* <AllTasks /> */}
+                  <UpcommingTasks />
                 </Collapsible>
               </div>
             </div>
@@ -93,9 +95,9 @@ function MainRoutes() {
                 <AiOutlineHome />
                 All Tasks
               </NavLink>
-              <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
+              <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
                 <MdCalendarToday />
-                Today
+                Upcoming
               </NavLink>
             </div>
             <div className='ProjectDetailMainContainer'>
