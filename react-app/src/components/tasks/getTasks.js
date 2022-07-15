@@ -42,12 +42,14 @@ const GetTasks = () => {
         {tasks.map((task) => {
           if (project_id == task.project_id) {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-            const date = new Date(task.due_date).toLocaleDateString("en-US", options)
+            const date = new Date(task.due_date)
+            const newDate = new Date(date.setDate(date.getDate() + 1))
+            const formatDate = newDate.toLocaleDateString("en-US", options)
             return (
               <div className='IndvTaskContainerOutter'>
                 <div key={task.id} className='IndvTaskContainer'>
                   <div>{task.task}</div>
-                  <div>{date}</div>
+                  <div>{formatDate}</div>
                   <div>{task.completed}</div>
                 </div>
                 <div>
