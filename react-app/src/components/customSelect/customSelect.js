@@ -5,17 +5,24 @@ import '../../css/main.css'
 function ColorSelect({ defaultValue, setColor }) {
 
   const options = [
-    {value: 'none', label: 'None', color:'#000000'},
-    {value: 'red', label: 'Red', color:'#d42b2d'},
-    {value: 'green', label: 'Green', color:'#27d838'},
-    {value: 'blue', label: 'Blue', color:'#2570da'},
-    // {value: 'yellow', label: 'Yellow', color:'#e7b818'},
-    {value: 'orange', label: 'Orange', color:'#e5791a'}
+    {value: '#a9a8a8', label: 'None', color:'#a9a8a8'},
+    {value: '#ce3d3d', label: 'Red', color:'#ce3d3d'},
+    {value: '#ff7700', label: 'Orange', color:'#ff7700'},
+    {value: '#ffc400', label: 'Yellow', color:'#ffc400'},
+    {value: '#00ff00', label: 'Lime Green', color:'#00ff00'},
+    {value: '#008000', label: 'Green', color:'#008000'},
+    {value: '#008080', label: 'Teal', color:'#008080'},
+    {value: '#87ceeb', label: 'Sky Blue', color:'#87ceeb'},
+    {value: '#add8e6', label: 'Light Blue', color:'#add8e6'},
+    {value: '#2929ff', label: 'Blue', color:'#2929ff'},
+    {value: '#6f056f', label: 'Grape', color:'#6f056f'},
+    {value: '#ff00ff', label: 'Magenta', color:'#ff00ff'},
+    {value: '#fa8072', label: 'Salmon', color:'#fa8072'}
   ]
 
   let savedColor
 
-  options.forEach((color) => color.value === defaultValue ? savedColor = color : null);
+  options.forEach((color) => color.value === defaultValue ? savedColor = color : '#a9a8a8');
 
   const display = (color) => ({
     display: 'flex',

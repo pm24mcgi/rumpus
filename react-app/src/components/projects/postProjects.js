@@ -10,7 +10,7 @@ const PostProjects = () => {
   const history = useHistory();
 
   const [title, setTitle] = useState('');
-  const [color, setColor] = useState('none');
+  const [color, setColor] = useState('#a9a8a8');
   const [favorite, setFavorite] = useState(false);
   const [favoriteTGL, setFavoriteTGL] = useState(0);
   const [validationErrors, setValidationErrors] = useState([]);
@@ -52,9 +52,6 @@ const PostProjects = () => {
 		if (validationErrors.length <= 0) {
 			await dispatch(postProject(data));
 			setValidationErrors([]);
-      setTitle('')
-      setColor('none')
-      setFavorite(false)
 			setHasSubmitted(false);
       history.push('/')
 		}
