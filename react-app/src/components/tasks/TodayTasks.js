@@ -69,7 +69,7 @@ const TodayTasks = () => {
         <NavLink to='/tasks' exact={true} className='AddATaskNav'>
           <div className='AddATaskOnTaskLists'>
             <div>
-              <BsPlusLg />
+              <BsPlusLg size={12}/>
             </div>
             <div className='AddATaskOnTaskListsText'>
               Add a task...
