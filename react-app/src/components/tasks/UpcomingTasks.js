@@ -68,7 +68,7 @@ const UpcommingTasks = () => {
               <BsPlusLg size={12}/>
             </div>
             <div className='AddATaskOnTaskListsText'>
-              Add a task...
+              Add task
             </div>
           </div>
         </NavLink>

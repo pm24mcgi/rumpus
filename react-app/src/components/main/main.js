@@ -50,15 +50,15 @@ function MainRoutes() {
           <Route path='/' exact ={true}>
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <AiOutlineHome />
+                <AiOutlineHome style={{color: '#d1453b'}}/>
                 All Tasks
               </NavLink>
               <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <CgToday />
+                <CgToday style={{color: '#068b06'}}/>
                 Today
               </NavLink>
               <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <MdCalendarToday />
+                <MdCalendarToday style={{color: '#d1453b'}}/>
                 Upcoming
               </NavLink>
             </div>

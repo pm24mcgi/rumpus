@@ -15,6 +15,7 @@ const GetTasks = () => {
   const { project_id } = useParams();
 
   const [editOpen, setEditOpen] = useState(false)
+  const [idTask, setIdTask] = useState('initial state')
 
   useEffect(() => {
     dispatch(getTasks());
@@ -30,7 +31,8 @@ const GetTasks = () => {
     }
   });
 
-  const onClick = () => {
+  const onClick = (e) => {
+    setIdTask(e.target.id)
     setEditOpen(!editOpen)
   }
 
@@ -60,15 +62,18 @@ const GetTasks = () => {
             return (
               <div className='IndvTaskContainerOutter'>
                 <div key={task.id} className='IndvTaskContainer'>
-                <div className='IndvTask'>{task.task}</div>
-                <div className='IndvTaskDate'>Due: {formatDate}</div>
-                {/* <div>{task.completed}</div> */}
+                  <div className='IndvTaskInfoContainer'>
+                    <div className='IndvTask'>{task.task}</div>
+                    <div className='IndvTaskDate'>Due: {formatDate}</div>
+                    {/* <div>{task.completed}</div> */}
+                  </div>
+                  <div onClick={onClick} id={task.id} className='EditTaskContainer'>
+                    Edit Task
+                  </div>
                 </div>
-                <div>
-                  <HiOutlinePencilAlt onClick={onClick}/>
-                  {editOpen &&
-                  <EditTask oneTask={task} setEditOpen={setEditOpen}/>}
-                </div>
+                {Number(idTask) == task.id &&
+                editOpen &&
+                <EditTask idTask={idTask} setEditOpen={setEditOpen}/>}
               </div>
             )
           }
@@ -79,7 +84,7 @@ const GetTasks = () => {
               <BsPlusLg size={12}/>
             </div>
             <div className='AddATaskOnTaskListsText'>
-              Add a task...
+              Add task
             </div>
           </div>
         </NavLink>

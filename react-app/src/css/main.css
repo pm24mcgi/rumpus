@@ -170,24 +170,21 @@
   align-items: center;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  border: 1px solid black;
+  border: 2px solid #d1453b;
+
   border-radius: 5px;
   width: fit-content;
 }
 
 .AddATaskOnTaskListsText {
-  margin-left: 10px;
+  margin-left: 5px;
   font-size: 14px;
 }
 
 .AddATaskOnTaskLists:hover {
   background-color: #d1453b;
   color: rgb(255, 255, 255);
-}
-
-.AddATaskOnTaskListsText:hover {
-  background-color: #d1453b;
-  color: rgb(255, 255, 255);
+  border: 1px solid black;
 }
 
 .CancelNavLinkText {

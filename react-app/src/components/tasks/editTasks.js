@@ -7,10 +7,13 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import DeleteTask from './deleteTasks'
 
-const EditTask = ({oneTask, setEditOpen}) => {
-  console.log(oneTask)
+const EditTask = ({idTask, setEditOpen}) => {
+  const id = Number(idTask)
   const dispatch = useDispatch();
   const userId = useSelector(state => state.session.user.id)
+  const thisTask = useSelector(state => state.task[id])
+  console.log(id)
+  console.log(thisTask)
   const allProjects = Object.values(useSelector(state => state.project))
 
   const projects = []
@@ -21,15 +24,25 @@ const EditTask = ({oneTask, setEditOpen}) => {
     }
   })
 
-  const [task, setTask] = useState(oneTask?.task);
-  const [project_id, setProject] = useState(oneTask?.project_id);
+  const [task, setTask] = useState('');
+  const [project_id, setProject] = useState('');
   // const [priority, setPriority] = useState(4);
-  const [dueDate, setDueDate] = useState(new Date(oneTask.due_date));
+  const [dueDate, setDueDate] = useState(new Date());
   // const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
     dispatch(getProjects());
   }, [])
+
+  useEffect(() => {
+    if (thisTask) {
+      const date = new Date(thisTask?.due_date)
+      const newDate = new Date(date.setDate(date.getDate() + 1))
+      setTask(thisTask?.task)
+      setProject(thisTask?.project_id)
+      setDueDate(new Date(newDate))
+    }
+  }, [thisTask, idTask])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,10 +56,11 @@ const EditTask = ({oneTask, setEditOpen}) => {
       due_date: dbDateConversion
     };
 
-    await dispatch(editTask(payload, oneTask.id))
+    await dispatch(editTask(payload, thisTask?.id))
+    setEditOpen(false)
   };
 
-  const onClick = () => {
+  const onClick = (e) => {
     setEditOpen(false)
   }
 
@@ -95,7 +109,7 @@ const EditTask = ({oneTask, setEditOpen}) => {
             </div>
         </div>
         <button type="submit">Submit Task Edit</button>
-        <DeleteTask id={oneTask.id}/>
+        <DeleteTask id={thisTask?.id} setEditOpen={setEditOpen}/>
         <button onClick={onClick}>Cancel</button>
       </form>
     </div>
