@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getTasks } from '../../store/tasks';
 import { BsPlusLg } from 'react-icons/bs';
 import { AiOutlineHome } from 'react-icons/ai'
+import EditTask from './editTasks';
 import '../../css/task.css'
 
 
@@ -18,6 +19,9 @@ const AllTasks = () => {
 
   const today = new Date().toLocaleDateString("en-US", options2);
 
+  const [editOpen, setEditOpen] = useState(false)
+  const [idTask, setIdTask] = useState('initial state')
+
 
   useEffect(() => {
     dispatch(getTasks());
@@ -30,6 +34,11 @@ const AllTasks = () => {
       return -1
     }
   });
+
+  const onClick = (e) => {
+    setIdTask(e.target.id)
+    setEditOpen(!editOpen)
+  }
 
   return(
     <div className='TaskContainer'>
@@ -51,10 +60,20 @@ const AllTasks = () => {
           const newDate = new Date(date.setDate(date.getDate() + 1))
           const formatDate = newDate.toLocaleDateString("en-US", options)
           return (
-            <div key={task.id} className='IndvTaskContainer'>
-              <div className='IndvTask'>{task.task}</div>
-              <div className='IndvTaskDate'>Due: {formatDate}</div>
-              {/* <div>{task.completed}</div> */}
+            <div className='IndvTaskContainerOutter'>
+              <div key={task.id} className='IndvTaskContainer'>
+                <div className='IndvTaskInfoContainer'>
+                  <div className='IndvTask'>{task.task}</div>
+                  <div className='IndvTaskDate'>Due: {formatDate}</div>
+                  {/* <div>{task.completed}</div> */}
+                </div>
+                <div onClick={onClick} id={task.id} className='EditTaskContainer'>
+                      edit
+                </div>
+              </div>
+              {Number(idTask) == task.id &&
+              editOpen &&
+              <EditTask idTask={idTask} setEditOpen={setEditOpen}/>}
             </div>
           )
           })}
