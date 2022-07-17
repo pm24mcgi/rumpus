@@ -50,15 +50,21 @@ function MainRoutes() {
           <Route path='/' exact ={true}>
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <AiOutlineHome style={{color: '#d1453b'}}/>
+                <div className='ProjectNavLinkIcon'>
+                  <AiOutlineHome style={{color: '#d1453b'}}/>
+                </div>
                 All Tasks
               </NavLink>
               <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <CgToday style={{color: '#068b06'}}/>
+                <div className='ProjectNavLinkIcon'>
+                  <CgToday style={{color: '#068b06'}}/>
+                </div>
                 Today
               </NavLink>
               <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <MdCalendarToday style={{color: '#d1453b'}}/>
+                <div className='ProjectNavLinkIcon'>
+                  <MdCalendarToday style={{color: '#5c00b1'}}/>
+                </div>
                 Upcoming
               </NavLink>
             </div>
@@ -74,15 +80,21 @@ function MainRoutes() {
           <Route path='/today' exact ={true}>
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <AiOutlineHome />
+                <div className='ProjectNavLinkIcon'>
+                  <AiOutlineHome style={{color: '#d1453b'}}/>
+                </div>
                 All Tasks
               </NavLink>
               <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <CgToday />
+                <div className='ProjectNavLinkIcon'>
+                  <CgToday style={{color: '#068b06'}}/>
+                </div>
                 Today
               </NavLink>
               <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <MdCalendarToday />
+                <div className='ProjectNavLinkIcon'>
+                  <MdCalendarToday style={{color: '#5c00b1'}}/>
+                </div>
                 Upcoming
               </NavLink>
             </div>
@@ -98,15 +110,21 @@ function MainRoutes() {
           <Route path='/upcoming' exact ={true}>
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <AiOutlineHome />
+                <div className='ProjectNavLinkIcon'>
+                  <AiOutlineHome style={{color: '#d1453b'}}/>
+                </div>
                 All Tasks
               </NavLink>
               <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <CgToday />
+                <div className='ProjectNavLinkIcon'>
+                  <CgToday style={{color: '#068b06'}}/>
+                </div>
                 Today
               </NavLink>
               <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <MdCalendarToday />
+                <div className='ProjectNavLinkIcon'>
+                  <MdCalendarToday style={{color: '#5c00b1'}}/>
+                </div>
                 Upcoming
               </NavLink>
             </div>
@@ -122,15 +140,21 @@ function MainRoutes() {
           <Route path='/projects/:project_id' >
             <div className='TopBarNavigators'>
               <NavLink to='/' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <AiOutlineHome />
+                <div className='ProjectNavLinkIcon'>
+                  <AiOutlineHome style={{color: '#d1453b'}}/>
+                </div>
                 All Tasks
               </NavLink>
               <NavLink to='/today' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <CgToday />
+                <div className='ProjectNavLinkIcon'>
+                  <CgToday style={{color: '#068b06'}}/>
+                </div>
                 Today
               </NavLink>
               <NavLink to='/upcoming' exact={true} className='ProjectNavLinkText nav-entry' activeClassName='ProjectNavLinkText nav-entry is-selected'>
-                <MdCalendarToday />
+                <div className='ProjectNavLinkIcon'>
+                  <MdCalendarToday style={{color: '#5c00b1'}}/>
+                </div>
                 Upcoming
               </NavLink>
             </div>

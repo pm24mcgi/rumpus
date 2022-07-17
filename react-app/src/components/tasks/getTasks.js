@@ -68,7 +68,7 @@ const GetTasks = () => {
                     {/* <div>{task.completed}</div> */}
                   </div>
                   <div onClick={onClick} id={task.id} className='EditTaskContainer'>
-                    Edit Task
+                    edit
                   </div>
                 </div>
                 {Number(idTask) == task.id &&

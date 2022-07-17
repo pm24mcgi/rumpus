@@ -112,6 +112,8 @@
 }
 
 .ProjectNavLinkText {
+  display: flex;
+  align-items: center;
   max-width: 300px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -203,4 +205,8 @@
   height: 10px;
   width: 10px;
 
+}
+
+.ProjectNavLinkIcon {
+  margin-right: 7px;
 }
