@@ -12,8 +12,6 @@ const EditTask = ({idTask, setEditOpen}) => {
   const dispatch = useDispatch();
   const userId = useSelector(state => state.session.user.id)
   const thisTask = useSelector(state => state.task[id])
-  console.log(id)
-  console.log(thisTask)
   const allProjects = Object.values(useSelector(state => state.project))
 
   const projects = []
