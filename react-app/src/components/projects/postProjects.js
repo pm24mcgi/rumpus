@@ -18,7 +18,7 @@ const PostProjects = () => {
   useEffect(() => {
 		const errors = [];
 		if (title.length === 0) errors.push("Please provide a title for this project");
-    if (title.length > 100) errors.push("Project titles must be less than 100 characters");
+    if (title.length > 100) errors.push("Project titles must be 100 characters or less");
 		setValidationErrors(errors);
 	}, [title]);
 
