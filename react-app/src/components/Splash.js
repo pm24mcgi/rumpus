@@ -13,7 +13,7 @@ function Splash() {
           Organize your work and life, finally.
         </div>
         <div className='SplashMainText'>
-          Become focused, organized, and calm with Todoist. The world’s #1 task manager and to-do list app.
+          Become focused, organized, and calm with Rumpus. The world’s #1 task manager and to-do list app.
         </div>
         <div className='NavBarCompRight'>
           <button className='NavBarCompButton Signup SplashMain'>
@@ -37,7 +37,7 @@ function Splash() {
               <br></br>
               Achieve more every day.
             </div>
-            <div className='SplashPageTwoInternalBottom'>Add tasks like “Read work emails every day at 10am” to fill your to-do list in seconds using Todoist’s powerful natural language recognition and recurring dates.</div>
+            <div className='SplashPageTwoInternalBottom'>Add tasks like “Read work emails every day at 10am” to fill your to-do list in seconds using Rumpus’ powerful natural language recognition and recurring dates.</div>
           </div>
           <img src={Splash2} className='SplashImgSmall'></img>
         </div>
