@@ -16,11 +16,11 @@ function Splash() {
           Become focused, organized, and calm with Rumpus. The world’s #1 task manager and to-do list app.
         </div>
         <div className='NavBarCompRight'>
-          <button className='NavBarCompButton Signup SplashMain'>
-            <NavLink to='/sign-up' exact={true} className='NavBarElementRight'>
+          <NavLink to='/sign-up' exact={true} className='NavBarElementRight'>
+            <button className='NavBarCompButton Signup SplashMain'>
               Start for free
-            </NavLink>
-          </button>
+            </button>
+          </NavLink>
         </div>
       </div>
       <div className='SplashPageContainer'>
