@@ -53,10 +53,13 @@ pipenv run flask seed all
 Rumpus utilizes a React.js/Redux frontend and a Flask backend. The database was constructed with PostgresSQL.
 
 # Technologies Used
+* [Javascript](https://www.javascript.com/)
 * [React.js](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
+* [Python](https://www.python.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/)
-* [Javascript](https://www.javascript.com/)
+* [Flask SQL Alchmey](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+* [Flask Alembic](https://flask-alembic.readthedocs.io/en/stable/)
 * [PostgresSQL](https://www.postgresql.org/)
 * [Sequelize](https://sequelize.org/)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
