@@ -36,10 +36,10 @@ const PostProjects = () => {
 		};
 
 		if (validationErrors.length <= 0) {
-			await dispatch(postProject(data));
+			const project = await dispatch(postProject(data));
 			setValidationErrors([]);
 			setHasSubmitted(false);
-      history.push('/')
+      history.push(`/projects/${project.id}`)
 		}
 	};
 

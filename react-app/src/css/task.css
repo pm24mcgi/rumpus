@@ -58,11 +58,11 @@
 }
 
 .EditTaskContainer {
-  border: rgb(46, 46, 46) solid 2px;
   width: fit-content;
   cursor: pointer;
   font-size: 12px;
-  padding: 2px;
+  height: fit-content;
+  padding: 1px;
   margin-left: 10px;
 }
 
@@ -70,4 +70,6 @@
   background-color: #d1453b;
   color: white;
   font-weight: bolder;
+  border: rgb(46, 46, 46) solid 2px;
+  border-radius: 5px;
 }
