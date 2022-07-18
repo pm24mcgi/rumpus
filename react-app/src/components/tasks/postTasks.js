@@ -101,7 +101,7 @@ const PostTask = () => {
             <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-          <div  className='FormInputFieldTextEditOnly'>Due Date</div>
+          <div className='FormInputFieldTextEditOnly'>Due Date</div>
           </div>
           <div className='PostTaskCalendarContainer'>
             <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
