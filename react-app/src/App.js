@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(getProjects());
+      // await dispatch(getProjects());
       setLoaded(true);
     })();
   }, [dispatch]);
