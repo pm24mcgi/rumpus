@@ -230,3 +230,16 @@
   border: none;
   background-color: #d6655d;
 }
+
+.LogoutButton {
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.LogoutButton:hover {
+  background-color: #d1453b;
+  border: 1px solid black;
+  color: white;
+  border-radius: 5px;
+}
