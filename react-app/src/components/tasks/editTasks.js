@@ -35,7 +35,7 @@ const EditTask = ({idTask, setEditOpen}) => {
 
   useEffect(() => {
 		const errors = [];
-		if (task.length === 0) errors.push("Please provide a title for this task");
+		if (task.length === 0) errors.push("Please provide a description for this task");
     if (task.length > 2000) errors.push("Task description must be 2000 characters or less");
     if (!project_id) errors.push("Please assign this task to project");
     if (!dueDate) errors.push("Please select a due date")
