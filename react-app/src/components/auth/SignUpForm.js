@@ -28,9 +28,9 @@ const SignUpForm = () => {
     if (LastName.length > 50) errors.push("Last name must be 50 characters or less");
     if (username.length === 0) errors.push("Please provide a username");
     if (username.length > 40) errors.push("Username must be 40 characters or less");
-    if (email.length === 0) errors.push("Please provide a valid email address");
+    if (email.length === 0) errors.push("Please provide an email address");
     if (email.length > 255) errors.push("Email address must be 255 characters or less");
-    if (!emailRegex.test((email))) errors.push("Must provide a valid email address.");
+    if (!emailRegex.test((email))) errors.push("Email address must be in a valid format");
     if (password.length === 0) errors.push("Please provide a password");
     if (password.length > 255) errors.push("Password must be 255 characters or less");
     if (!passwordRegex.test((password))) errors.push("Password must be at least 8 characters long, contain one special character, one letter and one number");
