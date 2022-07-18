@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { postProject } from '../../store/projects';
 import '../../css/errors.css';
-import '../../css/signup.css'
+import '../../css/signup.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
