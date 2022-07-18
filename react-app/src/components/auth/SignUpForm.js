@@ -26,7 +26,7 @@ const SignUpForm = () => {
     if (LastName.length === 0) errors.push("Please provide a last name");
     if (LastName.length >= 50) errors.push("Last name must be less than 50 characters");
     if (username.length === 0) errors.push("Please provide a username");
-    if (username.length >= 40) errors.push("Username must be less than 50 characters");
+    if (username.length >= 40) errors.push("Username must be less than 40 characters");
     if (email.length === 0) errors.push("Please provide a valid email address");
     if (email.length >= 255) errors.push("Email address must be less than 50 characters");
     if (!emailRegex.test((email))) errors.push("Must provide a valid email address.");
@@ -42,7 +42,6 @@ const SignUpForm = () => {
     setSubmitted(true)
 
     if (validationErrors.length <= 0) {
-      console.log('hit')
       const data = await dispatch(signUp(firstName, LastName, username, email, password));
       if (data) {
         setValidationErrors(data)

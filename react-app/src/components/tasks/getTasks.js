@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getTasks } from '../../store/tasks'
 import { BsPlusLg } from 'react-icons/bs'
 import { HiOutlinePencilAlt } from 'react-icons/hi'
@@ -10,9 +10,11 @@ import '../../css/task.css'
 
 const GetTasks = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const tasks = Object.values(useSelector(state => state.task))
   const projects = Object.values(useSelector(state => state.project))
   const { project_id } = useParams();
+  console.log(project_id)
 
   const AddTaskRoute = `/tasks/${project_id}`
 
@@ -24,6 +26,7 @@ const GetTasks = () => {
   }, [dispatch])
 
   const project = projects.filter((e) => e.id == project_id)
+  console.log(project)
 
   tasks.sort((objA, objB) => {
     if (new Date(objA.due_date).getTime() > new Date(objB.due_date).getTime()) {
@@ -41,6 +44,10 @@ const GetTasks = () => {
   const options2 = { weekday: 'short', month: 'short', day: 'numeric' };
 
   const today = new Date().toLocaleDateString("en-US", options2);
+
+  if(!project.length) {
+    history.push('/404')
+  }
 
   return(
     <div className='TaskContainer'>

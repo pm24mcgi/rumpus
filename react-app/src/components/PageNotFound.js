@@ -19,7 +19,7 @@ function PageNotFound() {
         <p>Don't worry, we'll redirect you!</p>
         <p className='NotFoundInternalbold'>Error Code: 404</p>
       </div>
-      <img src={notFoundImg} alt="NotFound"></img>
+      <img src={notFoundImg} alt="PageNotFound"></img>
     </div>
   )
 }

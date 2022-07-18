@@ -8,13 +8,14 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import MainRoutes from './components/main/main'
-import Splash from './components/Splash'
-import PostTask from './components/tasks/postTasks'
-import PostProjects from './components/projects/postProjects'
+import MainRoutes from './components/main/main';
+import Splash from './components/Splash';
+import PostTask from './components/tasks/postTasks';
+import PostProjects from './components/projects/postProjects';
 import EditProjects from './components/projects/editProjects';
-import PostTaskProject from './components/tasks/postTasksProject'
+import PostTaskProject from './components/tasks/postTasksProject';
 import PageNotFound from './components/PageNotFound';
+import { getProjects } from './store/projects';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getProjects());
       setLoaded(true);
     })();
   }, [dispatch]);

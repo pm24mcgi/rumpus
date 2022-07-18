@@ -27,8 +27,6 @@ const UpcommingTasks = () => {
     dispatch(getTasks());
   }, []);
 
-  allTasks.forEach((e) => console.log(new Date(e.due_date).setHours(0, 0, 0, 0)))
-
   const tomorrowTasks = allTasks.filter((e) => new Date(e.due_date).setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0))
 
   tomorrowTasks.sort((objA, objB) => {

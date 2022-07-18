@@ -14,9 +14,7 @@ const PostTaskProject = () => {
   const userId = useSelector(state => state.session.user.id)
   const allProjects = Object.values(useSelector(state => state.project))
   const projId = useParams()
-  console.log(projId)
   const projIdNum = projId.project_id
-  console.log(projIdNum)
 
   const projects = []
 

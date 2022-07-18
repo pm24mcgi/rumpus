@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import { BsPlusLg } from 'react-icons/bs'
 import { AiOutlineHome } from 'react-icons/ai'
+import MainLogo from '../images/Rumpus Logo.png'
+import SmallLogo from '../images/LogoOnly.png'
 import '../css/main.css'
 
 const NavBar = () => {
@@ -35,25 +37,25 @@ const NavBar = () => {
     <>
       <nav className='NavBarContainer'>
         <div className='NavBarComp'>
-          <button className='NavBarCompButton'>
-            <NavLink to='/splash' exact={true} className='NavBarElement'>
-              Home
-            </NavLink>
-          </button>
+          <NavLink to='/splash' exact={true} className='NavBarElement'>
+            <img src={MainLogo} alt="MainLogo" className='MainLogoSplashNav'></img>
+          </NavLink>
         </div>
-        <div className='NavBarComp'>
-          <button className='NavBarCompButton'>
-            <NavLink to='/login' exact={true} className='NavBarElement'>
-              Login
-            </NavLink>
-          </button>
-        </div>
-        <div className='NavBarComp'>
-          <button className='NavBarCompButton'>
-            <NavLink to='/sign-up' exact={true} className='NavBarElement'>
-              Sign Up
-            </NavLink>
-          </button>
+        <div>
+          <div className='NavBarComp'>
+            <button className='NavBarCompButton'>
+              <NavLink to='/login' exact={true} className='NavBarElement'>
+                Login
+              </NavLink>
+            </button>
+          </div>
+          <div className='NavBarComp'>
+            <button className='NavBarCompButton'>
+              <NavLink to='/sign-up' exact={true} className='NavBarElement'>
+                Sign Up
+              </NavLink>
+            </button>
+          </div>
         </div>
         {/* <NavLink to='/users' exact={true} activeClassName='active' className='NavBarElement'>
           Users

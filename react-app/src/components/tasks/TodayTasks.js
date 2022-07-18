@@ -27,9 +27,6 @@ const TodayTasks = () => {
     dispatch(getTasks());
   }, []);
 
-  allTasks.forEach((e) => console.log(new Date(e.due_date).setHours(0, 0, 0, 0)))
-  console.log(new Date().setHours(0, 0, 0, 0), "today")
-
   const isToday = (someDate) => {
     const today = new Date()
     return someDate.getDate() == today.getDate() &&

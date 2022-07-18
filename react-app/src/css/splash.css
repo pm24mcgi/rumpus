@@ -22,3 +22,25 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.NavBarContainer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 75px;
+}
+
+.NavBarComp {
+  margin-right: 35px;
+}
+
+.NavBarCompButton {
+  border-radius: 5px;
+}
+
+.MainLogoSplashNav {
+  height: 70px;
+}

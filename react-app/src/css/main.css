@@ -20,25 +20,6 @@
   color: white;
 }
 
-.NavBarContainer {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #d1453b;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  height: 20px;
-}
-
-.NavBarComp {
-  margin-right: 35px;
-}
-
-.NavBarCompButton {
-  border-radius: 5px;
-}
-
 .NavBarElement {
   text-decoration: none;
   font-weight: 600;

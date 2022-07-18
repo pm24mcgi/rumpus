@@ -13,7 +13,6 @@ const EditProjects = () => {
   const id = projectIdObj.project_id
 
   const project = useSelector(state => state.project[id])
-  console.log(project)
 
   const [title, setTitle] = useState(project?.title);
   const [color, setColor] = useState(project?.color);
