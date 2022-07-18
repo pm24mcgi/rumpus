@@ -64,6 +64,12 @@ const PostTaskProject = () => {
     }
   };
 
+  const project = allProjects.filter((e) => e.id == project_id)
+
+  if(!project.length) {
+    history.push('/404')
+  }
+
   return (
     <div className='TaskAddContainer'>
       <div>

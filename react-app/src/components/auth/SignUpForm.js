@@ -22,16 +22,16 @@ const SignUpForm = () => {
   useEffect(() => {
     const errors = [];
     if (firstName.length === 0) errors.push("Please provide a first name");
-    if (firstName.length >= 50) errors.push("First name must be less than 50 characters");
+    if (firstName.length > 50) errors.push("First name must be 50 characters or less");
     if (LastName.length === 0) errors.push("Please provide a last name");
-    if (LastName.length >= 50) errors.push("Last name must be less than 50 characters");
+    if (LastName.length > 50) errors.push("Last name must be 50 characters or less");
     if (username.length === 0) errors.push("Please provide a username");
-    if (username.length >= 40) errors.push("Username must be less than 40 characters");
+    if (username.length > 40) errors.push("Username must be 40 characters or less");
     if (email.length === 0) errors.push("Please provide a valid email address");
-    if (email.length >= 255) errors.push("Email address must be less than 50 characters");
+    if (email.length > 255) errors.push("Email address must be 255 characters or less");
     if (!emailRegex.test((email))) errors.push("Must provide a valid email address.");
     if (password.length === 0) errors.push("Please provide a password");
-    if (password.length >= 255) errors.push("Password must be less than 255 characters");
+    if (password.length > 255) errors.push("Password must be 255 characters or less");
     if (!passwordRegex.test((password))) errors.push("Password must be at least 8 characters long, contain one special character, one letter and one number");
     if (repeatPassword !== password) errors.push("The provided password does not match the confirmed password");
     setValidationErrors(errors);
