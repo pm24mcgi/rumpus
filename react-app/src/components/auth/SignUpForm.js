@@ -19,6 +19,7 @@ const SignUpForm = () => {
   const [validationErrors, setValidationErrors] = useState([]);
   const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+  const usernameRegex = /^[a-zA-Z0-9]*$/
 
   useEffect(() => {
     const errors = [];
@@ -28,6 +29,7 @@ const SignUpForm = () => {
     if (LastName.length > 50) errors.push("Last name must be 50 characters or less");
     if (username.length === 0) errors.push("Please provide a username");
     if (username.length > 40) errors.push("Username must be 40 characters or less");
+    if (!usernameRegex.test(username)) errors.push("Username can only contain letters and numbers")
     if (email.length === 0) errors.push("Please provide an email address");
     if (email.length > 255) errors.push("Email address must be 255 characters or less");
     if (!emailRegex.test((email))) errors.push("Email address must be in a valid format");
