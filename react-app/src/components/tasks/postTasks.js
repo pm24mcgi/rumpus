@@ -78,7 +78,7 @@ const PostTask = () => {
             </div>
           )}
           <div className='FormInputFieldEditAndPost'>
-          <label>Task</label>
+          <label className='FormInputFieldTextEditOnly'>Task Description</label>
           <br></br>
             <input
             className='FormInputFieldActual'
@@ -88,6 +88,8 @@ const PostTask = () => {
             onChange={(e) => setTask(e.target.value)}
             value={task}
             />
+          <label className='FormInputFieldTextEditOnly'>Project</label>
+          <br></br>
           <select
             className='FormInputFieldEditAndPost'
             name="project"
@@ -99,7 +101,7 @@ const PostTask = () => {
             <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-          <div>Due Date</div>
+          <div  className='FormInputFieldTextEditOnly'>Due Date</div>
           </div>
           <div className='PostTaskCalendarContainer'>
             <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />

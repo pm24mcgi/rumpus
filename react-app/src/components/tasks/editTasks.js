@@ -87,7 +87,7 @@ const EditTask = ({idTask, setEditOpen}) => {
           </div>
         )}
         <div className='FormInputFieldEditAndPost'>
-        <label>Task Description</label>
+        <label className='FormInputFieldTextEditOnly'>Task Description</label>
         <br></br>
             <textarea
             className='FormInputFieldTextEditOnly'
@@ -98,7 +98,7 @@ const EditTask = ({idTask, setEditOpen}) => {
             value={task}
             />
             <br></br>
-        <label>Project</label>
+        <label  className='FormInputFieldTextEditOnly'>Project</label>
         <br></br>
           <select
             className='FormInputFieldTextEditOnly'
@@ -110,6 +110,8 @@ const EditTask = ({idTask, setEditOpen}) => {
               <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
+          <br></br>
+            <label className='FormInputFieldTextEditOnly'>Due Date</label>
             <div className='PostTaskCalendarContainerEdit'>
               <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
             </div>
