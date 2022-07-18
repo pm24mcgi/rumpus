@@ -108,7 +108,7 @@ const EditTask = ({idTask, setEditOpen}) => {
             ))}
           </select>
             <div className='PostTaskCalendarContainer'>
-              <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
+              <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
             </div>
         </div>
         <button type="submit">Submit Task Edit</button>

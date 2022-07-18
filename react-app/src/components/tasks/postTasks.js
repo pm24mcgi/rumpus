@@ -99,7 +99,7 @@ const PostTask = () => {
           <div>Due Date</div>
         </div>
         <div className='PostTaskCalendarContainer'>
-          <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
+          <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
         </div>
         <button type="submit">Submit New Task</button>
         <button>
