@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { getProjects } from '../../store/projects';
 import { editTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
@@ -27,6 +26,7 @@ const EditTask = ({idTask, setEditOpen}) => {
   const [project_id, setProject] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
   const [validationErrors, setValidationErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
     dispatch(getProjects());
@@ -35,7 +35,7 @@ const EditTask = ({idTask, setEditOpen}) => {
   useEffect(() => {
 		const errors = [];
 		if (task.length === 0) errors.push("Please provide a title for this task");
-    if (task.length > 0) errors.push("Task title must be 2000 characters or less");
+    if (task.length > 2000) errors.push("Task title must be 2000 characters or less");
     if (!project_id) errors.push("Please assign this task to project");
     if (!dueDate) errors.push("Please select a due date")
 		setValidationErrors(errors);
@@ -53,6 +53,7 @@ const EditTask = ({idTask, setEditOpen}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
 
     const dbDateConversion = dueDate.getFullYear() + "-" + (dueDate.getMonth() + 1) + "-" + dueDate.getDate()
 
@@ -81,7 +82,7 @@ const EditTask = ({idTask, setEditOpen}) => {
       <form onSubmit={handleSubmit}>
         {validationErrors.length > 0 && (
           <div>
-            {validationErrors.map((error, idx) => (
+            {hasSubmitted && validationErrors.map((error, idx) => (
               <div className='ErrorDiv' key={idx}>{error}</div>
             ))}
           </div>
