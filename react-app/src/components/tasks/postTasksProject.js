@@ -7,6 +7,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import '../../css/main.css'
 import '../../css/errors.css'
+import '../../css/forms.css'
 
 const PostTaskProject = () => {
   const dispatch = useDispatch();
@@ -71,53 +72,54 @@ const PostTaskProject = () => {
   }
 
   return (
-    <div className='TaskAddContainer'>
-      <div>
-        Add A Task
-      </div>
-      <form onSubmit={handleSubmit}>
-        {hasSubmitted && validationErrors.length > 0 && (
-          <div>
-            {validationErrors.map((error, idx) => (
-              <div className='ErrorDiv' key={idx}>{error}</div>
-            ))}
-          </div>
-        )}
-        <div>
-        <label>Task</label>
-          <input
-          className="inputForm"
-          name="task"
-          type="text"
-          placeholder='Set a new task...'
-          onChange={(e) => setTask(e.target.value)}
-          value={task}
-          />
-        <select
-          className="inputForm"
-          name="project"
-          onChange={(e) => setProject(e.target.value)}
-          value={project_id}
-          >
-          <option disabled selected>Select a project...</option>
-          {projects.map((option) => (
+      <div className='FormsProjectContainer'>
+        <div className='FormsProjectContainer'>
+          <h4>Add A Task</h4>
+        </div>
+        <form onSubmit={handleSubmit} className='EditAndPostForm'>
+          {hasSubmitted && validationErrors.length > 0 && (
+            <div>
+              {validationErrors.map((error, idx) => (
+                <div className='ErrorDiv' key={idx}>{error}</div>
+              ))}
+            </div>
+          )}
+          <div className='FormInputFieldEditAndPost'>
+          <label>Task</label>
+          <br></br>
+            <input
+            className='FormInputFieldActual'
+            name="task"
+            type="text"
+            placeholder='Set a new task...'
+            onChange={(e) => setTask(e.target.value)}
+            value={task}
+            />
+          <select
+            className='FormInputFieldEditAndPost'
+            name="project"
+            onChange={(e) => setProject(e.target.value)}
+            value={project_id}
+            >
+            <option disabled selected>Select a project...</option>
+            {projects.map((option) => (
             <option key={option.id} value={option.id}>{option.title}</option>
-          ))}
-        </select>
+            ))}
+          </select>
           <div>Due Date</div>
-        </div>
-        <div className='PostTaskCalendarContainer'>
-          <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
-        </div>
-        <button type="submit">Submit New Task</button>
-        <button>
-          <NavLink to='/' className='CancelNavLinkText'>
-            Cancel
+          </div>
+          <div className='PostTaskCalendarContainer'>
+            <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
+          </div>
+          <button type="submit" className="FormInputFieldTextEditAndPostButton">Submit New Task</button>
+          <NavLink to='/' className="FormInputFieldTextEditAndPostNavLink">
+            <button className="FormInputFieldTextEditAndPostButton">
+              Cancel
+            </button>
           </NavLink>
-        </button>
-      </form>
-    </div>
-  );
+        </form>
+      </div>
+    );
 };
 
 export default PostTaskProject;

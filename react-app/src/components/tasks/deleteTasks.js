@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteTask, getTasks } from '../../store/tasks'
+import '../../css/forms.css'
 
 const DeleteTask = ({id, setEditOpen}) => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const DeleteTask = ({id, setEditOpen}) => {
   };
 
   return (
-    <button onClick={handleDelete}>
+    <button onClick={handleDelete}  className="FormInputFieldTextEditAndPostButton">
       Delete Task
     </button>
   )

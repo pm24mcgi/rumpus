@@ -6,6 +6,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import DeleteTask from './deleteTasks'
 import '../../css/errors.css'
+import '../../css/forms.css'
 
 const EditTask = ({idTask, setEditOpen}) => {
   const id = Number(idTask)
@@ -75,10 +76,8 @@ const EditTask = ({idTask, setEditOpen}) => {
   }
 
   return (
-    <div>
-      <div>
-        Edit Task
-      </div>
+    <div className='FormsProjectContainerEditOnly'>
+      <h4>Edit Task</h4>
       <form onSubmit={handleSubmit}>
         {validationErrors.length > 0 && (
           <div>
@@ -87,18 +86,22 @@ const EditTask = ({idTask, setEditOpen}) => {
             ))}
           </div>
         )}
-        <div>
-        <label>Task</label>
-            <input
-            className="inputForm"
+        <div className='FormInputFieldEditAndPost'>
+        <label>Task Description</label>
+        <br></br>
+            <textarea
+            className='FormInputFieldTextEditOnly'
             name="task"
             type="text"
             placeholder='Set a new task...'
             onChange={(e) => setTask(e.target.value)}
             value={task}
             />
-         <select
-            className="inputForm"
+            <br></br>
+        <label>Project</label>
+        <br></br>
+          <select
+            className='FormInputFieldTextEditOnly'
             name="project"
             onChange={(e) => setProject(e.target.value)}
             value={project_id}
@@ -107,13 +110,14 @@ const EditTask = ({idTask, setEditOpen}) => {
               <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-            <div className='PostTaskCalendarContainer'>
+            <div className='PostTaskCalendarContainerEdit'>
               <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
             </div>
         </div>
-        <button type="submit">Submit Task Edit</button>
+        <button type="submit"  className="FormInputFieldTextEditAndPostButton">Submit Task Edit</button>
         <DeleteTask id={thisTask?.id} setEditOpen={setEditOpen}/>
-        <button onClick={onClick}>Cancel</button>
+        <button onClick={onClick}  className="FormInputFieldTextEditAndPostButton">Cancel</button>
+        <div className='EditTaskSpacer'></div>
       </form>
     </div>
   );

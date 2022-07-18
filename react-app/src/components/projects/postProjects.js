@@ -48,7 +48,7 @@ const PostProjects = () => {
     <div className='FormsProjectContainer'>
       <div className='FormsProjectContainer'>
         <h4>Add a Project:</h4>
-        <form onSubmit={onSubmit}  className='EditAndPostForm'>
+        <form onSubmit={onSubmit} className='EditAndPostForm'>
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (

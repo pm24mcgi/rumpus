@@ -41,3 +41,22 @@
   padding: 10px;
   color: white;
 }
+
+.FormInputFieldTextEditAndPostButton:hover {
+  background-color: #d6655d;
+}
+
+
+.FormInputFieldTextEditOnly {
+  width: 90%;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.PostTaskCalendarContainerEdit {
+  margin-top: 15px;
+}
+
+.EditTaskSpacer {
+  margin-bottom: 10px;
+}

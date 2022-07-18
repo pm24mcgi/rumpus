@@ -125,7 +125,9 @@
 }
 
 .PostTaskCalendarContainer {
-  width: 25rem;
+  width: 35rem;
+  margin-left: 60px;
+  margin-bottom: 25px;
 }
 
 .AllTaskContainerDateContainer {
@@ -214,12 +216,18 @@
 
 .PostProjectAddTaskButton {
   background-color: #d1453b;
-  border: 2px solid black;
   border-radius: 5px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 24px;
+  padding: 10px;
 }
 
-.PostProjectAddTask {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 24px;
+.PostProjectAddTaskButton {
+  border: none;
+}
+
+.PostProjectAddTaskButton:hover {
+  border: none;
+  background-color: #d6655d;
 }

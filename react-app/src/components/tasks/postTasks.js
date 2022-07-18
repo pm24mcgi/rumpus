@@ -7,6 +7,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import '../../css/main.css'
 import '../../css/errors.css'
+import '../../css/forms.css'
 
 const PostTask = () => {
   const dispatch = useDispatch();
@@ -64,11 +65,11 @@ const PostTask = () => {
 
   if (projects.length > 0) {
     return (
-      <div className='TaskAddContainer'>
-        <div>
-          Add A Task
+      <div className='FormsProjectContainer'>
+        <div className='FormsProjectContainer'>
+          <h4>Add A Task</h4>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='EditAndPostForm'>
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (
@@ -76,10 +77,11 @@ const PostTask = () => {
               ))}
             </div>
           )}
-          <div>
+          <div className='FormInputFieldEditAndPost'>
           <label>Task</label>
+          <br></br>
             <input
-            className="inputForm"
+            className='FormInputFieldActual'
             name="task"
             type="text"
             placeholder='Set a new task...'
@@ -87,7 +89,7 @@ const PostTask = () => {
             value={task}
             />
           <select
-            className="inputForm"
+            className='FormInputFieldEditAndPost'
             name="project"
             onChange={(e) => setProject(e.target.value)}
             value={project_id}
@@ -97,17 +99,17 @@ const PostTask = () => {
             <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-            <div>Due Date</div>
+          <div>Due Date</div>
           </div>
           <div className='PostTaskCalendarContainer'>
             <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
           </div>
-          <button type="submit">Submit New Task</button>
-          <button>
-            <NavLink to='/' className='CancelNavLinkText'>
+          <button type="submit" className="FormInputFieldTextEditAndPostButton">Submit New Task</button>
+          <NavLink to='/' className="FormInputFieldTextEditAndPostNavLink">
+            <button className="FormInputFieldTextEditAndPostButton">
               Cancel
-            </NavLink>
-          </button>
+            </button>
+          </NavLink>
         </form>
       </div>
     );
@@ -117,11 +119,11 @@ const PostTask = () => {
         <div className='PostProjectAddTaskText'>
           Add a project prior to creating a task
         </div>
-        <button className='PostProjectAddTaskButton'>
         <NavLink to='/projects' exact ={true} className='PostProjectAddTask'>
-          Get Started
+          <button className='PostProjectAddTaskButton'>
+            Get Started
+          </button>
         </NavLink>
-        </button>
       </div>
     )
   }
