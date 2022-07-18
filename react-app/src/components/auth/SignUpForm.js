@@ -1,25 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import '../../css/errors.css'
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user);
   const [firstName, setFirstName] = useState('');
   const [LastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
+  const [submitted, setSubmitted] = useState(false)
+  const [validationErrors, setValidationErrors] = useState([]);
+  const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+
+  useEffect(() => {
+    const errors = [];
+    if (firstName.length === 0) errors.push("Please provide a first name");
+    if (firstName.length >= 50) errors.push("First name must be less than 50 characters");
+    if (LastName.length === 0) errors.push("Please provide a last name");
+    if (LastName.length >= 50) errors.push("Last name must be less than 50 characters");
+    if (username.length === 0) errors.push("Please provide a username");
+    if (username.length >= 40) errors.push("Username must be less than 50 characters");
+    if (email.length === 0) errors.push("Please provide a valid email address");
+    if (email.length >= 255) errors.push("Email address must be less than 50 characters");
+    if (!emailRegex.test((email))) errors.push("Must provide a valid email address.");
+    if (password.length === 0) errors.push("Please provide a password");
+    if (password.length >= 255) errors.push("Password must be less than 255 characters");
+    if (!passwordRegex.test((password))) errors.push("Password must be at least 8 characters long, contain one special character, one letter and one number");
+    if (repeatPassword !== password) errors.push("The provided password does not match the confirmed password");
+    setValidationErrors(errors);
+  }, [firstName, LastName, username, email, password, repeatPassword]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    setSubmitted(true)
+
+    if (validationErrors.length <= 0) {
+      console.log('hit')
       const data = await dispatch(signUp(firstName, LastName, username, email, password));
       if (data) {
-        setErrors(data)
+        setValidationErrors(data)
       }
     }
   };
@@ -55,8 +80,8 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+        {validationErrors.length > 0 && submitted && validationErrors.map((error, ind) => (
+          <div key={ind} className='ErrorDiv'>{error}</div>
         ))}
       </div>
       <div>
@@ -111,7 +136,6 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

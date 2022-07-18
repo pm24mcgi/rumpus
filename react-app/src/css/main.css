@@ -210,3 +210,8 @@
 .ProjectNavLinkIcon {
   margin-right: 7px;
 }
+
+.GetProjectEdit {
+  text-decoration: none;
+  color:#d1453b;
+}

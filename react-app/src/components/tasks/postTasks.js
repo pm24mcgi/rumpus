@@ -6,6 +6,7 @@ import { postTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import '../../css/main.css'
+import '../../css/errors.css'
 
 const PostTask = () => {
   const dispatch = useDispatch();
@@ -23,16 +24,26 @@ const PostTask = () => {
 
   const [task, setTask] = useState('');
   const [project_id, setProject] = useState();
-  // const [priority, setPriority] = useState(4);
   const [dueDate, setDueDate] = useState(new Date());
-  // const [validationErrors, setValidationErrors] = useState([]);
+  const [validationErrors, setValidationErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
     dispatch(getProjects());
   }, [])
 
+  useEffect(() => {
+		const errors = [];
+		if (task.length === 0) errors.push("Please provide a title for this task");
+    if (task.length > 0) errors.push("Task title must be 2000 characters or less");
+    if (!project_id) errors.push("Please assign this task to project");
+    if (!dueDate) errors.push("Please select a due date")
+		setValidationErrors(errors);
+	}, [task, project_id, dueDate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
 
     const dbDateConversion = dueDate.getFullYear() + "-" + (dueDate.getMonth() + 1) + "-" + dueDate.getDate()
 
@@ -45,8 +56,10 @@ const PostTask = () => {
 
     const id = parseInt(project_id)
 
-    await dispatch(postTask(payload))
-    .then(history.push(`/projects/${id}`))
+    if (validationErrors.length <= 0) {
+      await dispatch(postTask(payload))
+      .then(history.push(`/projects/${id}`))
+    }
   };
 
   return (
@@ -55,11 +68,17 @@ const PostTask = () => {
         Add A Task
       </div>
       <form onSubmit={handleSubmit}>
+        {hasSubmitted && validationErrors.length > 0 && (
+          <div>
+            {validationErrors.map((error, idx) => (
+              <div className='ErrorDiv' key={idx}>{error}</div>
+            ))}
+          </div>
+        )}
         <div>
         <label>Task</label>
           <input
           className="inputForm"
-          required
           name="task"
           type="text"
           placeholder='Set a new task...'
@@ -68,7 +87,6 @@ const PostTask = () => {
           />
         <select
           className="inputForm"
-          required
           name="project"
           onChange={(e) => setProject(e.target.value)}
           value={project_id}
@@ -78,19 +96,6 @@ const PostTask = () => {
             <option key={option.id} value={option.id}>{option.title}</option>
           ))}
         </select>
-        {/* <select
-          className="inputForm"
-          required
-          name="priority"
-          onChange={(e) => setPriority(e.target.value)}
-          value={priority}
-          >
-            <option disabled selected>Priority...</option>
-            <option value="1">Priority 1</option>
-            <option value="2">Priority 2</option>
-            <option value="3">Priority 3</option>
-            <option value="4">Priority 4</option>
-          </select> */}
           <div>Due Date</div>
         </div>
         <div className='PostTaskCalendarContainer'>

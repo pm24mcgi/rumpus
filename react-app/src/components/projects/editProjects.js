@@ -4,6 +4,7 @@ import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { editProject } from '../../store/projects'
 import ColorSelect from '../customSelect/customSelect';
 import DeleteProjects from './deleteProjects';
+import '../../css/errors.css'
 
 const EditProjects = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,8 @@ const EditProjects = () => {
 
   useEffect(() => {
 		const errors = [];
-		if (title?.length === 0) errors.push("Please provide a title for this project");
+		if (title.length === 0) errors.push("Please provide a title for this project");
+    if (title.length > 100) errors.push("Project titles must be less than 100 characters");
 		setValidationErrors(errors);
 	}, [title]);
 
@@ -61,7 +63,7 @@ const EditProjects = () => {
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (
-                <p className='errorMsg' key={idx}>{error}</p>
+                <div className='ErrorDiv' key={idx}>{error}</div>
               ))}
             </div>
           )}

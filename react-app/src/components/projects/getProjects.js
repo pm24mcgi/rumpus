@@ -32,7 +32,7 @@ const GetProjects = () => {
             {(sessionUser.id === project.user_id) &&
             <div className='ProjectEditDots'>
               <Collapsible trigger={<BsThreeDots />} transitionTime={0.1}>
-                <NavLink to={`/projects/${project.id}/edit`}>
+                <NavLink className='GetProjectEdit' to={`/projects/${project.id}/edit`}>
                   <HiOutlinePencilAlt />
                 </NavLink>
               </Collapsible>

@@ -60,6 +60,9 @@ function App() {
         <ProtectedRoute path='/projects/:project_id/edit' exact={true} >
           <EditProjects />
         </ProtectedRoute>
+        <ProtectedRoute>
+          <h1 className='PageNotFound'>Page Not found</h1>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

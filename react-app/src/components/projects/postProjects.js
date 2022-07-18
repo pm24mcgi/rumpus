@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, NavLink } from 'react-router-dom';
-import { Rating } from 'react-simple-star-rating'
 import { postProject } from '../../store/projects'
 import ColorSelect from '../customSelect/customSelect';
+import '../../css/errors.css'
 
 const PostProjects = () => {
   const dispatch = useDispatch();
@@ -11,29 +11,15 @@ const PostProjects = () => {
 
   const [title, setTitle] = useState('');
   const [color, setColor] = useState('#a9a8a8');
-  const [favorite, setFavorite] = useState(false);
-  const [favoriteTGL, setFavoriteTGL] = useState(0);
   const [validationErrors, setValidationErrors] = useState([]);
 	const [hasSubmitted, setHasSubmitted] = useState(false);
-
-  const handleFavorite = () => {
-    if (favoriteTGL === 0) {
-      setFavoriteTGL(100)
-      setFavorite(true)
-    }
-    if (favoriteTGL === 100) {
-      setFavoriteTGL(0)
-      setFavorite(false)
-    }
-  }
 
   useEffect(() => {
 		const errors = [];
 		if (title.length === 0) errors.push("Please provide a title for this project");
+    if (title.length > 100) errors.push("Project titles must be less than 100 characters");
 		setValidationErrors(errors);
-	}, [
-		title
-	]);
+	}, [title]);
 
   const handleChange = (selectedColor) => {
     setColor(selectedColor)
@@ -46,7 +32,7 @@ const PostProjects = () => {
 		const data = {
       title,
       color,
-      favorite
+      favorite: false
 		};
 
 		if (validationErrors.length <= 0) {
@@ -65,7 +51,7 @@ const PostProjects = () => {
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (
-                <p className='errorMsg' key={idx}>{error}</p>
+                <div className='ErrorDiv' key={idx}>{error}</div>
               ))}
             </div>
           )}
@@ -73,7 +59,6 @@ const PostProjects = () => {
             <label>Project Title</label>
             <input
             className="inputForm"
-            required
             name="title"
             type="text"
             placeholder="Project Title"
@@ -84,8 +69,6 @@ const PostProjects = () => {
             <label>Flag Color</label>
             <ColorSelect onChange={handleChange} setColor={setColor} defaultValue={color} />
             <br></br>
-            {/* <label>Favorite</label>
-            <Rating onClick={handleFavorite} ratingValue={favoriteTGL} emptyColor={'rgb(211, 211, 211)'} fillColor={'rgb(255,255,0)'} size={20} initialValue={0} allowHover={false} iconsCount={1} /> */}
           </div>
           <button className="Submit Btn" type="submit">
           + Add Project

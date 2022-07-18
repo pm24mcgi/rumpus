@@ -6,6 +6,7 @@ import { editTask } from '../../store/tasks'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import DeleteTask from './deleteTasks'
+import '../../css/errors.css'
 
 const EditTask = ({idTask, setEditOpen}) => {
   const id = Number(idTask)
@@ -24,13 +25,21 @@ const EditTask = ({idTask, setEditOpen}) => {
 
   const [task, setTask] = useState('');
   const [project_id, setProject] = useState('');
-  // const [priority, setPriority] = useState(4);
   const [dueDate, setDueDate] = useState(new Date());
-  // const [validationErrors, setValidationErrors] = useState([]);
+  const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
     dispatch(getProjects());
   }, [])
+
+  useEffect(() => {
+		const errors = [];
+		if (task.length === 0) errors.push("Please provide a title for this task");
+    if (task.length > 0) errors.push("Task title must be 2000 characters or less");
+    if (!project_id) errors.push("Please assign this task to project");
+    if (!dueDate) errors.push("Please select a due date")
+		setValidationErrors(errors);
+	}, [task, project_id, dueDate]);
 
   useEffect(() => {
     if (thisTask) {
@@ -54,8 +63,10 @@ const EditTask = ({idTask, setEditOpen}) => {
       due_date: dbDateConversion
     };
 
-    await dispatch(editTask(payload, thisTask?.id))
-    setEditOpen(false)
+    if (validationErrors.length <= 0) {
+      await dispatch(editTask(payload, thisTask?.id))
+      setEditOpen(false)
+    }
   };
 
   const onClick = (e) => {
@@ -68,11 +79,17 @@ const EditTask = ({idTask, setEditOpen}) => {
         Edit Task
       </div>
       <form onSubmit={handleSubmit}>
+        {validationErrors.length > 0 && (
+          <div>
+            {validationErrors.map((error, idx) => (
+              <div className='ErrorDiv' key={idx}>{error}</div>
+            ))}
+          </div>
+        )}
         <div>
         <label>Task</label>
             <input
             className="inputForm"
-            required
             name="task"
             type="text"
             placeholder='Set a new task...'
@@ -81,7 +98,6 @@ const EditTask = ({idTask, setEditOpen}) => {
             />
          <select
             className="inputForm"
-            required
             name="project"
             onChange={(e) => setProject(e.target.value)}
             value={project_id}
@@ -90,18 +106,6 @@ const EditTask = ({idTask, setEditOpen}) => {
               <option key={option.id} value={option.id}>{option.title}</option>
             ))}
           </select>
-          {/* <select
-            className="inputForm"
-            required
-            name="priority"
-            onChange={(e) => setPriority(e.target.value)}
-            value={priority}
-            >
-              <option value="1">Priority 1</option>
-              <option value="2">Priority 2</option>
-              <option value="3">Priority 3</option>
-              <option value="4">Priority 4</option>
-            </select> */}
             <div className='PostTaskCalendarContainer'>
               <Calendar onChange={setDueDate} value={dueDate} calendarType={'US'} />
             </div>
