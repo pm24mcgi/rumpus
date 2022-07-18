@@ -58,7 +58,7 @@ const GetTasks = () => {
         <div className='TaskContainerProjectDescription'>
           <div className='TaskContainerProjectDescriptionColor' style={{backgroundColor: `${project[0]?.color}`}}>
           </div>
-          <div>
+          <div className='TaskContainerProjectDescriptionText'>
           {project[0]?.title}
           </div>
         </div>
@@ -72,7 +72,7 @@ const GetTasks = () => {
               <div className='IndvTaskContainerOutter'>
                 <div key={task.id} className='IndvTaskContainer'>
                   <div className='IndvTaskInfoContainer'>
-                    <div className='IndvTask'>{task.task}</div>
+                    <p className='IndvTask'>{task.task}</p>
                     <div className='IndvTaskDate'>Due: {formatDate}</div>
                     {/* <div>{task.completed}</div> */}
                   </div>

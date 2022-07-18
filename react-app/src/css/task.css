@@ -36,6 +36,11 @@
   border-radius: 50%;
 }
 
+.TaskContainerProjectDescriptionText {
+  word-break: break-all;
+  width: 100%;
+}
+
 .IndvTaskContainer {
   padding: 10px;
   padding-bottom: 5px;
@@ -48,6 +53,8 @@
 .IndvTask {
   font-size: 14px;
   font-weight:bold;
+  word-break: break-word;
+  width: 100%;
 }
 
 .IndvTaskDate {
