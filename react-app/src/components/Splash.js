@@ -6,12 +6,18 @@ import '../css/splash.css'
 
 function Splash() {
   return (
-    <div className='SplashPageContainer'>
-      <h1>Splash Page</h1>
-      <img src={Splash1} className='SplashImgLarge'></img>
-      <img src={Splash2} className='SplashImgSmall'></img>
-      <img src={Splash3} className='SplashImgSmall'></img>
-    </div>
+    <>
+      <div className='SplashPageContainer'>
+        <img src={Splash1} className='SplashImgLarge'></img>
+        <img src={Splash2} className='SplashImgSmall'></img>
+        <img src={Splash3} className='SplashImgSmall'></img>
+      </div>
+      <div className='SplashFooter'>
+        <a className='FooterLinks' href='https://github.com/pm24mcgi'>GitHub</a>
+        <a className='FooterLinks' href='https://github.com/pm24mcgi/rumpus'>Project Repo</a>
+        <a className='FooterLinks' href='https://www.linkedin.com/in/patrickmcginn-1358b76b/'>LinkedIn</a>
+      </div>
+    </>
   )
 }
 

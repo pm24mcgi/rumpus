@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import '../../css/errors.css'
+import { postProject } from '../../store/projects';
+import '../../css/errors.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,14 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(firstName, LastName, username, email, password));
       if (data) {
         setValidationErrors(data)
+      }
+      if (validationErrors.length <= 0) {
+        const payload = {
+          title: 'Personal',
+          color: '#008080',
+          favorite: false
+        };
+        dispatch (postProject(payload))
       }
     }
   };

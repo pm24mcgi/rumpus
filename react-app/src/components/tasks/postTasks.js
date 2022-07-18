@@ -62,54 +62,70 @@ const PostTask = () => {
     }
   };
 
-  return (
-    <div className='TaskAddContainer'>
-      <div>
-        Add A Task
-      </div>
-      <form onSubmit={handleSubmit}>
-        {hasSubmitted && validationErrors.length > 0 && (
-          <div>
-            {validationErrors.map((error, idx) => (
-              <div className='ErrorDiv' key={idx}>{error}</div>
-            ))}
-          </div>
-        )}
+  if (projects.length > 0) {
+    return (
+      <div className='TaskAddContainer'>
         <div>
-        <label>Task</label>
-          <input
-          className="inputForm"
-          name="task"
-          type="text"
-          placeholder='Set a new task...'
-          onChange={(e) => setTask(e.target.value)}
-          value={task}
-          />
-        <select
-          className="inputForm"
-          name="project"
-          onChange={(e) => setProject(e.target.value)}
-          value={project_id}
-          >
-          <option disabled selected>Select a project...</option>
-          {projects.map((option) => (
+          Add A Task
+        </div>
+        <form onSubmit={handleSubmit}>
+          {hasSubmitted && validationErrors.length > 0 && (
+            <div>
+              {validationErrors.map((error, idx) => (
+                <div className='ErrorDiv' key={idx}>{error}</div>
+              ))}
+            </div>
+          )}
+          <div>
+          <label>Task</label>
+            <input
+            className="inputForm"
+            name="task"
+            type="text"
+            placeholder='Set a new task...'
+            onChange={(e) => setTask(e.target.value)}
+            value={task}
+            />
+          <select
+            className="inputForm"
+            name="project"
+            onChange={(e) => setProject(e.target.value)}
+            value={project_id}
+            >
+            <option disabled selected>Select a project...</option>
+            {projects.map((option) => (
             <option key={option.id} value={option.id}>{option.title}</option>
-          ))}
-        </select>
-          <div>Due Date</div>
+            ))}
+          </select>
+            <div>Due Date</div>
+          </div>
+          <div className='PostTaskCalendarContainer'>
+            <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
+          </div>
+          <button type="submit">Submit New Task</button>
+          <button>
+            <NavLink to='/' className='CancelNavLinkText'>
+              Cancel
+            </NavLink>
+          </button>
+        </form>
+      </div>
+    );
+  } else {
+    return (
+      <div className='PostProjectAddTaskContainer'>
+        <div className='PostProjectAddTaskText'>
+          Add a project prior to creating a task
         </div>
-        <div className='PostTaskCalendarContainer'>
-          <Calendar minDate={new Date()} onChange={setDueDate} value={dueDate} calendarType={'US'} />
-        </div>
-        <button type="submit">Submit New Task</button>
-        <button>
-          <NavLink to='/' className='CancelNavLinkText'>
-            Cancel
-          </NavLink>
+        <button className='PostProjectAddTaskButton'>
+        <NavLink to='/projects' exact ={true} className='PostProjectAddTask'>
+          Get Started
+        </NavLink>
         </button>
-      </form>
-    </div>
-  );
+      </div>
+    )
+  }
+
 };
 
 export default PostTask;

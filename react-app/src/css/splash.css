@@ -1,5 +1,5 @@
 .SplashPageContainer {
-  width: 100vw;
+  width: 98vw;
 }
 
 .SplashImgLarge {
@@ -8,4 +8,17 @@
 
 .SplashImgSmall {
   width: 30%;
+}
+
+.SplashFooter {
+  /* width: 200px; */
+ padding: 25px;
+ background-color: bisque;
+}
+
+.FooterLinks {
+  background-color: aqua;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
 }

@@ -156,7 +156,7 @@
 }
 
 .TodaysDateDisplayAllTasks {
-  margin-left: 8px;
+  margin-top: 8px;
   font-size: 14px;
   color: rgb(121, 121, 121);
 }
@@ -214,4 +214,31 @@
 .GetProjectEdit {
   text-decoration: none;
   color:#d1453b;
+}
+
+.PostProjectAddTaskContainer {
+  padding: 25px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.PostProjectAddTaskText {
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 150px;
+}
+
+.PostProjectAddTaskButton {
+  background-color: #d1453b;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.PostProjectAddTask {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
 }

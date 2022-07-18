@@ -13,7 +13,6 @@ const GetTasks = () => {
   const tasks = Object.values(useSelector(state => state.task))
   const projects = Object.values(useSelector(state => state.project))
   const { project_id } = useParams();
-  console.log(project_id)
 
   const AddTaskRoute = `/tasks/${project_id}`
 
