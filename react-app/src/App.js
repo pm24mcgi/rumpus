@@ -14,6 +14,7 @@ import PostTask from './components/tasks/postTasks'
 import PostProjects from './components/projects/postProjects'
 import EditProjects from './components/projects/editProjects';
 import PostTaskProject from './components/tasks/postTasksProject'
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,9 +65,7 @@ function App() {
         <ProtectedRoute path='/projects/:project_id/edit' exact={true} >
           <EditProjects />
         </ProtectedRoute>
-        <ProtectedRoute>
-          <h1 className='PageNotFound'>Page Not found</h1>
-        </ProtectedRoute>
+        <PageNotFound />
       </Switch>
     </BrowserRouter>
   );
