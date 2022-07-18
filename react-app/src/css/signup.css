@@ -1,0 +1,61 @@
+.SignupPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SignupPageText {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.SignupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 350px;
+}
+
+.FormInputField {
+  width: 100%;
+  border: 1px solid grey;
+  display: inline;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.FormInputFieldText {
+  display: inline;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.FormInputFieldActual {
+  width: 95%;
+  display: inline;
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.FormSubmitButton {
+  width: 100%;
+  display: inline;
+  margin: 15px;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  border: none;
+  background-color: #d1453b;
+  cursor: pointer;
+}
+
+.FormSubmitButton:hover {
+  background-color: #dd594f;
+}
