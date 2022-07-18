@@ -13,6 +13,7 @@ import Splash from './components/Splash'
 import PostTask from './components/tasks/postTasks'
 import PostProjects from './components/projects/postProjects'
 import EditProjects from './components/projects/editProjects';
+import PostTaskProject from './components/tasks/postTasksProject'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/tasks' exact={true} >
           <PostTask />
+        </ProtectedRoute>
+        <ProtectedRoute path='/tasks/:project_id' exact={true} >
+          <PostTaskProject />
         </ProtectedRoute>
         <ProtectedRoute path='/projects' exact={true} >
           <PostProjects />

@@ -13,6 +13,9 @@ const GetTasks = () => {
   const tasks = Object.values(useSelector(state => state.task))
   const projects = Object.values(useSelector(state => state.project))
   const { project_id } = useParams();
+  console.log(project_id)
+
+  const AddTaskRoute = `/tasks/${project_id}`
 
   const [editOpen, setEditOpen] = useState(false)
   const [idTask, setIdTask] = useState('initial state')
@@ -78,7 +81,7 @@ const GetTasks = () => {
             )
           }
         })}
-        <NavLink to='/tasks' exact={true} className='AddATaskNav'>
+        <NavLink to={AddTaskRoute} exact={true} className='AddATaskNav'>
           <div className='AddATaskOnTaskLists'>
             <div>
               <BsPlusLg size={12}/>
