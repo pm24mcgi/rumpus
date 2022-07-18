@@ -41,18 +41,18 @@ const NavBar = () => {
             <img src={MainLogo} alt="MainLogo" className='MainLogoSplashNav'></img>
           </NavLink>
         </div>
-        <div>
-          <div className='NavBarComp'>
-            <button className='NavBarCompButton'>
-              <NavLink to='/login' exact={true} className='NavBarElement'>
+        <div className='NavBarRightContainer NavBarComp'>
+          <div className='NavBarCompRight'>
+            <button className='NavBarCompButton Login'>
+              <NavLink to='/login' exact={true} className='NavBarElementLeft'>
                 Login
               </NavLink>
             </button>
           </div>
-          <div className='NavBarComp'>
-            <button className='NavBarCompButton'>
-              <NavLink to='/sign-up' exact={true} className='NavBarElement'>
-                Sign Up
+          <div className='NavBarCompRight'>
+            <button className='NavBarCompButton Signup'>
+              <NavLink to='/sign-up' exact={true} className='NavBarElementRight'>
+                Start for free
               </NavLink>
             </button>
           </div>

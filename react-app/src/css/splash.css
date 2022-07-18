@@ -1,3 +1,64 @@
+.NavBarContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 75px;
+}
+
+.NavBarComp {
+  margin: 35px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.NavBarCompButton {
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.NavBarCompButton.Login {
+  background-color: white;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+.NavBarCompButton.Login:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.NavBarCompButton.Signup {
+  background-color: #d1453b;
+  padding: 15px;
+  color: white;
+}
+
+.NavBarCompButton.Signup:hover {
+  background-color: #dd594f;
+}
+
+.NavBarElementLeft {
+  text-decoration: none;
+  color: rgb(104, 104, 104);
+}
+
+.NavBarElementRight {
+  text-decoration: none;
+  color: white;
+}
+
+.NavBarRightContainer {
+  display: flex;
+}
+
+.MainLogoSplashNav {
+  height: 70px;
+}
+
 .SplashPageContainer {
   width: 98vw;
 }
@@ -12,8 +73,8 @@
 
 .SplashFooter {
   /* width: 200px; */
- padding: 25px;
- background-color: bisque;
+  padding: 25px;
+  background-color: bisque;
 }
 
 .FooterLinks {
@@ -21,26 +82,4 @@
   display: inline;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.NavBarContainer {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  height: 75px;
-}
-
-.NavBarComp {
-  margin-right: 35px;
-}
-
-.NavBarCompButton {
-  border-radius: 5px;
-}
-
-.MainLogoSplashNav {
-  height: 70px;
 }
