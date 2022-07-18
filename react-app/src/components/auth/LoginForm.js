@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import Demo from './Demo'
 import '../../css/errors.css'
+import '../../css/login.css'
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -45,37 +46,45 @@ const LoginForm = () => {
   }
 
   return (
-    <>
-      <form onSubmit={onLogin}>
+    <div className='LoginPage'>
+      <p className='LoginPageText'>
+        Login
+      </p>
+      <form onSubmit={onLogin} className='LoginForm'>
         <div>
           {validationErrors.length > 0 && submitted && validationErrors.map((error, ind) => (
             <div key={ind} className='ErrorDiv'>{error}</div>
           ))}
         </div>
-        <div>
-          <label htmlFor='email'>Email</label>
+        <div className='FormInputField'>
+          <label htmlFor='email' className='FormInputFieldText'>Email</label>
+          <br></br>
           <input
             name='email'
             type='text'
-            placeholder='Email'
+            placeholder='Enter your email...'
             value={email}
             onChange={updateEmail}
+            className='FormInputFieldActual'
           />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
+        <div className='FormInputField'>
+          <label htmlFor='password'  className='FormInputFieldText'>Password</label>
+          <br></br>
           <input
             name='password'
             type='password'
-            placeholder='Password'
+            placeholder='Enter your password...'
             value={password}
             onChange={updatePassword}
+            className='FormInputFieldActual'
           />
-          <button type='submit'>Login</button>
+          <br></br>
         </div>
+        <button type='submit' className='FormSubmitButton'>Login</button>
+        <Demo />
       </form>
-      <Demo />
-    </>
+    </div>
   );
 };
 
