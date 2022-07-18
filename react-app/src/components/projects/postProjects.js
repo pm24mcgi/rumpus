@@ -4,6 +4,7 @@ import { useHistory, NavLink } from 'react-router-dom';
 import { postProject } from '../../store/projects'
 import ColorSelect from '../customSelect/customSelect';
 import '../../css/errors.css'
+import '../../css/forms.css'
 
 const PostProjects = () => {
   const dispatch = useDispatch();
@@ -44,10 +45,10 @@ const PostProjects = () => {
 	};
 
   return (
-    <div className='ProjectContainer'>
-      <div>
+    <div className='FormsProjectContainer'>
+      <div className='FormsProjectContainer'>
         <h4>Add a Project:</h4>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}  className='EditAndPostForm'>
           {hasSubmitted && validationErrors.length > 0 && (
             <div>
               {validationErrors.map((error, idx) => (
@@ -55,29 +56,29 @@ const PostProjects = () => {
               ))}
             </div>
           )}
-          <div>
-            <label>Project Title</label>
+          <div className='FormInputFieldEditAndPost'>
+            <label className='FormInputFieldTextEditAndPost'>Project Title</label>
             <input
-            className="inputForm"
+            className='FormInputFieldActual'
             name="title"
             type="text"
-            placeholder="Project Title"
+            placeholder="Enter project title..."
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             />
             <br></br>
-            <label>Flag Color</label>
-            <ColorSelect onChange={handleChange} setColor={setColor} defaultValue={color} />
+            <label className='FormInputFieldTextEditAndPost'>Color Select</label>
+            <ColorSelect className='FormInputFieldActual' onChange={handleChange} setColor={setColor} defaultValue={color} />
             <br></br>
           </div>
-          <button className="Submit Btn" type="submit">
+          <button className="FormInputFieldTextEditAndPostButton" type="submit">
           + Add Project
           </button>
-          <button>
-            <NavLink to='/' className='CancelNavLinkText'>
-              Cancel
-            </NavLink>
-          </button>
+          <NavLink to='/' className="FormInputFieldTextEditAndPostNavLink">
+            <button className="FormInputFieldTextEditAndPostButton">
+                Cancel
+            </button>
+          </NavLink>
         </form>
       </div>
     </div>

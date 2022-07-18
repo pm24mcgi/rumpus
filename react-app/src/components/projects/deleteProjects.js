@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { deleteProject, getProjects } from '../../store/projects'
+import '../../css/forms.css'
 
 const DeleteProjects = ({id}) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const DeleteProjects = ({id}) => {
   };
 
   return (
-    <button onClick={handleDelete}>
+    <button onClick={handleDelete}  className="FormInputFieldTextEditAndPostButton">
       Delete
     </button>
   )

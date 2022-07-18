@@ -1,0 +1,43 @@
+.FormsProjectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.EditAndPostForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 500px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.FormInputFieldEditAndPost{
+  width: 98%;
+  margin-bottom: 10px;
+}
+
+.FormInputFieldTextEditAndPost {
+  width: 90%;
+  font-weight: 700;
+  margin-bottom: 75px;
+}
+
+.FormInputFieldTextEditAndPostNavLink {
+  width: 100%;
+}
+
+.FormInputFieldTextEditAndPostButton {
+  width: 100%;
+  background-color: #dd594f;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  color: white;
+}
