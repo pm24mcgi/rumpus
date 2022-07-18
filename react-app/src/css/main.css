@@ -146,6 +146,7 @@
 
 .AddATaskNav {
   text-decoration: none;
+  width: fit-content;
 }
 
 .AddATaskOnTaskLists {
@@ -156,9 +157,7 @@
   text-decoration: none;
   color: rgb(0, 0, 0);
   border: 2px solid #d1453b;
-
   border-radius: 5px;
-  width: fit-content;
 }
 
 .AddATaskOnTaskListsText {

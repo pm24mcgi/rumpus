@@ -43,18 +43,18 @@ const NavBar = () => {
         </div>
         <div className='NavBarRightContainer NavBarComp'>
           <div className='NavBarCompRight'>
-            <button className='NavBarCompButton Login'>
-              <NavLink to='/login' exact={true} className='NavBarElementLeft'>
+            <NavLink to='/login' exact={true} className='NavBarElementLeft'>
+              <button className='NavBarCompButton Login'>
                 Login
-              </NavLink>
-            </button>
+              </button>
+            </NavLink>
           </div>
           <div className='NavBarCompRight'>
-            <button className='NavBarCompButton Signup'>
-              <NavLink to='/sign-up' exact={true} className='NavBarElementRight'>
+            <NavLink to='/sign-up' exact={true} className='NavBarElementRight'>
+              <button className='NavBarCompButton Signup'>
                 Start for free
-              </NavLink>
-            </button>
+              </button>
+            </NavLink>
           </div>
         </div>
         {/* <NavLink to='/users' exact={true} activeClassName='active' className='NavBarElement'>
